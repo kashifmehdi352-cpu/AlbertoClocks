@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Locator | Alberto Watch</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Luxury Dark Theme */
+        :root {
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Gold Gradient Utility */
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Search Section */
+        .search-container { 
+            text-align: center; 
+            padding: 80px 20px 60px; 
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        .search-container h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem; 
+            margin-bottom: 12px; 
+        }
+
+        .search-container p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        .search-box { 
+            display: flex; 
+            justify-content: center; 
+            gap: 12px; 
+            max-width: 650px; 
+            margin: 0 auto; 
+        }
+
+        .search-box input { 
+            flex-grow: 1; 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            border: 1px solid var(--border-color); 
+            background: rgba(22, 27, 34, 0.8); 
+            color: #fff; 
+            font-size: 15px; 
+            outline: none; 
+            transition: 0.3s;
+        }
+
+        .search-box input:focus { 
+            border-color: var(--accent-gold); 
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .search-box button { 
+            padding: 15px 30px; 
+            border: none; 
+            background: var(--gold-gradient); 
+            color: #0b0f19; 
+            font-weight: 700; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            transition: 0.3s ease; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-box button:hover { 
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Locator Layout */
+        .locator-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 30px; 
+            max-width: 1280px; 
+            margin: 50px auto; 
+            padding: 0 20px; 
+        }
+
+        /* Store List */
+        .store-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+            max-height: 600px; 
+            overflow-y: auto; 
+            padding-right: 12px; 
+        }
+
+        /* Custom Scrollbar for Store List */
+        .store-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .store-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        .store-list::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+        }
+
+        .store-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 14px; 
+            padding: 24px; 
+            transition: all 0.3s ease; 
+            backdrop-filter: blur(8px);
+        }
+
+        .store-card:hover { 
+            border-color: var(--border-gold); 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+        }
+
+        .store-card h3 { 
+            color: #fff; 
+            margin-bottom: 12px; 
+            font-size: 1.2rem; 
+            font-family: 'Playfair Display', serif;
+        }
+
+        .store-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+
+        .store-info i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+            width: 16px;
+        }
+
+        .store-status { 
+            display: inline-block; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            margin-top: 10px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-open { 
+            background: rgba(16, 185, 129, 0.15); 
+            color: #10b981; 
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .store-actions { 
+            margin-top: 18px; 
+            display: flex; 
+            gap: 12px; 
+        }
+
+        .btn-dir { 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px; 
+            background: rgba(212, 175, 55, 0.1); 
+            color: var(--accent-gold); 
+            border: 1px solid var(--border-gold); 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            transition: all 0.3s ease;
+        }
+
+        .btn-dir:hover { 
+            background: var(--gold-gradient); 
+            color: #0b0f19;
+        }
+
+        /* Map Box */
+        .map-box { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 14px; 
+            min-height: 550px; 
+            overflow: hidden; 
+            position: relative; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .map-box iframe { 
+            width: 100%; 
+            height: 100%; 
+            min-height: 550px; 
+            border: none; 
+            filter: grayscale(80%) invert(90%) contrast(1.2);
+        }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 35px 20px; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border-color); 
+            margin-top: 60px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            .locator-layout { 
+                grid-template-columns: 1fr; 
+            }
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .search-container h1 { font-size: 2rem; }
+            .search-box { flex-direction: column; }
+            .search-box button { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo-text">ALBERTO<span>WATCH</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="tecnology.html">Technology</a>
+            <a href="support.html">Support</a>
+            <a href="storelocator.html" class="active">Store Locator</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="Product.html">Products</a>
+        </nav>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-container">
+        <h1>Find a <span class="gold-text">Boutique</span> Near You</h1>
+        <p>Explore authorized dealers, exclusive flagships, and certified service hubs.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Enter City, Zip Code or Country...">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </div>
+    </section>
+
+    <!-- Main Locator Content -->
+    <main class="locator-layout">
+        
+        <!-- Store Cards Container -->
+        <div class="store-list">
+            
+            <div class="store-card">
+                <h3>Grand Flagship Boutique</h3>
+                <div class="store-info">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>123 Luxury Avenue, Fashion District, NY 10001</span>
+                </div>
+                <div class="store-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+1 (555) 019-2834</span>
+                </div>
+                <div class="store-info">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Mon - Sat: 10:00 AM - 8:00 PM</span>
+                </div>
+                <span class="store-status status-open">Open Now</span>
+                <div class="store-actions">
+                    <a href="https://maps.google.com" target="_blank" class="btn-dir">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <h3>Downtown Heritage Center</h3>
+                <div class="store-info">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>456 Clockwork Square, Downtown, NY 10005</span>
+                </div>
+                <div class="store-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+1 (555) 014-9921</span>
+                </div>
+                <div class="store-info">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Mon - Sun: 11:00 AM - 7:00 PM</span>
+                </div>
+                <span class="store-status status-open">Open Now</span>
+                <div class="store-actions">
+                    <a href="https://maps.google.com" target="_blank" class="btn-dir">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <h3>Official Repair & Service Hub</h3>
+                <div class="store-info">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>789 Precision Way, Tech Park, NY 10012</span>
+                </div>
+                <div class="store-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+1 (555) 018-3344</span>
+                </div>
+                <div class="store-info">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                </div>
+                <span class="store-status status-open">Open Now</span>
+                <div class="store-actions">
+                    <a href="https://maps.google.com" target="_blank" class="btn-dir">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Google Map Integration Box -->
+        <div class="map-box">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.216262706312!2d-73.98657868459365!3d40.75797477932688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Alberto Watch Brand. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

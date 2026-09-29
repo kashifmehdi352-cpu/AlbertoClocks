@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support | Alberto Watch</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Support Hero Header */
+        .hero { 
+            text-align: center; 
+            padding: 80px 20px 60px; 
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        .hero h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem; 
+            margin-bottom: 12px; 
+        }
+
+        .hero p { 
+            font-size: 1.05rem; 
+            color: var(--text-muted); 
+            max-width: 650px; 
+            margin: 0 auto; 
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Quick Assistance Cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        .support-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .support-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .support-card .icon-box {
+            width: 55px;
+            height: 55px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--accent-gold);
+            margin: 0 auto 18px;
+        }
+
+        .support-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .support-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .support-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .support-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 20px 25px;
+        }
+
+        .faq-question {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* Support Form Section */
+        .form-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(8px);
+        }
+
+        .form-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-section p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(11, 15, 25, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-submit {
+            grid-column: span 2;
+            padding: 15px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 35px 20px; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border-color); 
+            margin-top: 80px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 850px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full, .btn-submit {
+                grid-column: span 1;
+            }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo-text">ALBERTO<span>WATCH</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="tecnology.html">Technology</a>
+            <a href="support.html" class="active">Support</a>
+            <a href="storelocator.html">Store Locator</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="Product.html">Products</a>
+        </nav>
+    </header>
+
+    <!-- Support Hero -->
+    <section class="hero">
+        <h1>How Can We <span class="gold-text">Assist You?</span></h1>
+        <p>Our client concierges and technical watchmakers are available to assist with warranty, maintenance, and product inquiries.</p>
+    </section>
+
+    <main>
+        <!-- Quick Support Channels -->
+        <div class="grid-cards">
+            <div class="support-card">
+                <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+                <h3>Warranty & Service</h3>
+                <p>Register your timepiece or check ongoing repair status.</p>
+                <a href="#support-form">Submit Request &rarr;</a>
+            </div>
+
+            <div class="support-card">
+                <div class="icon-box"><i class="fa-solid fa-truck"></i></div>
+                <h3>Shipping & Returns</h3>
+                <p>Track your order or view our complimentary return policy.</p>
+                <a href="#faq">Learn More &rarr;</a>
+            </div>
+
+            <div class="support-card">
+                <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+                <h3>User Manuals</h3>
+                <p>Download setting guides and calibration details for your model.</p>
+                <a href="technology.html">View Specifications &rarr;</a>
+            </div>
+
+            <div class="support-card">
+                <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+                <h3>Concierge Service</h3>
+                <p>Speak directly with our client care team worldwide.</p>
+                <a href="tel:+15550192834">+1 (555) 019-2834 &rarr;</a>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <h2 class="section-title">Frequently Asked <span class="gold-text">Questions</span></h2>
+        <div class="faq-container" id="faq">
+            <div class="faq-item">
+                <div class="faq-question">How do I register my watch warranty? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">You can register your watch by filling out the online support ticket below with your serial number, found on the case back of your timepiece.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How often should my timepiece be serviced? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">We recommend a full overhaul every 3 to 5 years for mechanical watches to preserve mechanical accuracy and water resistance sealings.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is covered under the international warranty? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">Our 5-Year Limited Warranty covers manufacturing defects and internal movement components under standard operating conditions.</div>
+            </div>
+        </div>
+
+        <!-- Support Ticket Form -->
+        <section class="form-section" id="support-form">
+            <h2>Create A Support <span class="gold-text">Ticket</span></h2>
+            <p>Fill out the form below and our concierge team will respond within 24 hours.</p>
+
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Watch Model / Serial No.</label>
+                        <input type="text" placeholder="e.g. ALT-2026-X">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Inquiry Type</label>
+                        <select required>
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="warranty">Warranty & Repairs</option>
+                            <option value="order">Order Status</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Message / Description</label>
+                        <textarea rows="5" placeholder="Describe your issue or question in detail..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Support Ticket</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Alberto Watch Brand. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

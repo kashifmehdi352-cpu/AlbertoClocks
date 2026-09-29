@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Alberto Watch Luxury Timepieces</title>
+
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            padding-bottom: 32px;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ================= HEADER / NAVBAR ================= */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        .logo-icon {
+            color: var(--accent-gold);
+            font-size: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .cart-btn {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-btn:hover {
+            background: var(--gold-gradient);
+            color: #0b0f19;
+        }
+
+        /* ================= PAGE BANNER ================= */
+        .page-banner {
+            padding: 60px 5% 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-banner small {
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .page-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-top: 8px;
+        }
+
+        /* ================= FILTERS & SEARCH ================= */
+        .filter-section {
+            padding: 30px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: rgba(22, 27, 34, 0.4);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border-color: transparent;
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 260px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 15px 8px 38px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--border-gold);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ================= PRODUCTS GRID ================= */
+        .products-container {
+            padding: 50px 5%;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .product-img {
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.06);
+        }
+
+        .badge-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .add-cart {
+            flex-grow: 1;
+            padding: 10px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .add-cart:hover {
+            opacity: 0.9;
+        }
+
+        .quick-view {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quick-view:hover {
+            color: var(--accent-gold);
+            border-color: var(--border-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 50px 5% 30px;
+            background: rgba(7, 10, 17, 0.95);
+            margin-top: 60px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ================= MODAL ================= */
+        .modal-content {
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            backdrop-filter: blur(16px);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            opacity: 0.9;
+            color: #0b0f19;
+        }
+
+        /* TICKER */
+        .ticker {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            z-index: 10000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .ticker-text {
+            white-space: nowrap;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        @media(max-width: 768px) {
+            .header { flex-direction: column; gap: 15px; }
+            .filter-section { flex-direction: column; align-items: stretch; }
+            .search-box { width: 100%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="header">
+        <a href="index.html" class="logo-text">
+            <i class="fa-solid fa-clock logo-icon"></i> ALBERTO<span>WATCH</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="storelocator.html">Store Locator</a>
+            <a href="support.html">Support</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="tecnology.html">Tecnology</a>
+        </nav>
+
+        <button class="cart-btn" onclick="openCart()">
+            <i class="fa-solid fa-cart-shopping"></i> <span id="cartCount">0</span>
+        </button>
+    </header>
+
+    <!-- ================= PAGE BANNER ================= -->
+    <section class="page-banner">
+        <small>Exclusive Horology Catalog</small>
+        <h1>Vintage, Luxury, Smart & <span class="gold-text">Designer Collection</span></h1>
+    </section>
+
+    <!-- ================= FILTERS & SEARCH ================= -->
+    <section class="filter-section">
+        <div class="category-buttons">
+            <button class="filter-btn active" onclick="filterProducts('all', this)">All Watches</button>
+            <button class="filter-btn" onclick="filterProducts('vintage', this)">Vintage Collection</button>
+            <button class="filter-btn" onclick="filterProducts('luxury', this)">Luxury Timepieces</button>
+            <button class="filter-btn" onclick="filterProducts('smart', this)">Smart Watches</button>
+            <button class="filter-btn" onclick="filterProducts('designer', this)">Designer Series</button>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search timepieces...">
+        </div>
+    </section>
+
+    <!-- ================= PRODUCTS GRID ================= -->
+    <section class="products-container">
+        <div class="row g-4" id="productsGrid">
+            <!-- Dynamically Rendered via JS -->
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="copyright">
+            &copy; 2026 Alberto Watch Brand. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ================= TICKER ================= -->
+    <div class="ticker">
+        <div class="ticker-text" id="tickerText">
+            ALBERTO WATCHES • TIMELESS PRECISION • SYNCHRONIZING REAL TIME...
+        </div>
+    </div>
+
+    <!-- ================= CART MODAL ================= -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping <span class="gold-text">Cart</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">Your cart is empty.</div>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <span style="font-size: 0.9rem; color: var(--text-muted);">Total:</span>
+                        <strong style="font-size: 1.2rem; color: #fff; margin-left: 5px;">$<span id="cartTotal">0</span></strong>
+                    </div>
+                    <button class="btn-gold" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PRODUCT DETAIL MODAL ================= -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Watch Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body row g-4" id="modalBody">
+                    <!-- Dynamic Details -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const products = [
+            // VINTAGE COLLECTION (7 items)
+            { 
+                id: 1, 
+                name: "Alberto Chrono-Legacy 1948", 
+                category: "vintage", 
+                price: 340, 
+                badge: "CLASSIC CHRONO", 
+                img: "/s1.jpg", 
+                desc: "Aged brass housing paired with a hand-stitched tan leather strap and nostalgic 1940s tachymeter dial." 
+            },
+            { 
+                id: 2, 
+                name: "Royal Heritage Pocket Wrist 1935", 
+                category: "vintage", 
+                price: 420, 
+                badge: "RARE POCKET-ADAPTED", 
+                img: "/s2.jpg", 
+                desc: "Re-engineered vintage pocket watch movement enclosed in a modern wrist casing with classic Roman numerals." 
+            },
+            { 
+                id: 3, 
+                name: "Alberto Old-Gatsby Tonneau", 
+                category: "vintage", 
+                price: 290, 
+                badge: "1920s BARREL SHAPE", 
+                img: "/s3.jpg", 
+                desc: "Curved barrel-shaped antique casing featuring golden patina hands and a guilloché inner dial." 
+            },
+            { 
+                id: 4, 
+                name: "Silverstone Vintage Racer '67", 
+                category: "vintage", 
+                price: 365, 
+                badge: "RACEDAY EDITION", 
+                img: "/s4.jpg", 
+                desc: "Inspired by 1960s track racing chronographs, with a perforated rally leather strap and dual sub-dials." 
+            },
+            { 
+                id: 5, 
+                name: "Alberto Masterpiece Art-Deco", 
+                category: "vintage", 
+                price: 510, 
+                badge: "ART-DECO PATTERN", 
+                img: "/l1.jpg", 
+                desc: "Symmetrical geometric Art-Deco dial with gilded leaf hands and a vintage polished steel bezel." 
+            },
+            { 
+                id: 6, 
+                name: "Luftwaffe Pilot Legend 1941", 
+                category: "vintage", 
+                price: 330, 
+                badge: "MILITARY AVIATOR", 
+                img: "/l2.jpg", 
+                desc: "High-contrast matte black dial engineered with patinated luminescent indices for high visibility." 
+            },
+            { 
+                id: 7, 
+                name: "Nostalgic Aureus Mesh 1982", 
+                category: "vintage", 
+                price: 275, 
+                badge: "GOLD MESH RETRO", 
+                img: "/l3.jpg", 
+                desc: "Slim-profile retro gold-tone casing connected to a lightweight woven stainless steel mesh bracelet." 
+            },
+
+            // LUXURY COLLECTION (7 items)
+            { 
+                id: 8, 
+                name: "Alberto Tourbillon Imperium", 
+                category: "luxury", 
+                price: 1450, 
+                badge: "GRAND TOURBILLON", 
+                img: "/l4.jpg", 
+                desc: "18k gold electroplated open-heart cage displaying a rotating Swiss automatic tourbillon mechanism." 
+            },
+            { 
+                id: 9, 
+                name: "Grand Skeleton Majesty Gold", 
+                category: "luxury", 
+                price: 1100, 
+                badge: "EXPOSED SKELETON", 
+                img: "/v1.jpg", 
+                desc: "Fully transparent mechanical engine shielded by scratch-proof sapphire crystal on both front and back." 
+            },
+            { 
+                id: 10, 
+                name: "Royal Astronomical Moonphase", 
+                category: "luxury", 
+                price: 1580, 
+                badge: "CELESTIAL CALENDAR", 
+                img: "/v2.jpg", 
+                desc: "Solid gold bezel featuring a precision astronomical moonphase window and full perpetual calendar function." 
+            },
+            { 
+                id: 11, 
+                name: "Black Diamond Sovereign", 
+                category: "luxury", 
+                price: 1950, 
+                badge: "GENUINE DIAMONDS", 
+                img: "/v3.jpg", 
+                desc: "Midnight black obsidian sunray dial studded with 12 ethically sourced solitaire diamonds at hour positions." 
+            },
+            { 
+                id: 12, 
+                name: "Opulent Skeleton II Chrono", 
+                category: "luxury", 
+                price: 1720, 
+                badge: "HAND-ENGRAVED GEARS", 
+                img: "/v4.jpg", 
+                desc: "Exquisite hand-engraved platinum internal bridges visible through an exhibition case-back." 
+            },
+            { 
+                id: 13, 
+                name: "Rose Gold Executive Chrono", 
+                category: "luxury", 
+                price: 1280, 
+                badge: "ROSE GOLD PVD", 
+                img: "/w1.jpg", 
+                desc: "Brushed rose gold PVD case paired with a genuine brown alligator-grain leather strap and deployment clasp." 
+            },
+            { 
+                id: 14, 
+                name: "Oceanic Sapphire Chronometer", 
+                category: "luxury", 
+                price: 1390, 
+                badge: "COSC CERTIFIED", 
+                img: "/w2.jpg", 
+                desc: "Officially certified Swiss chronometer with a deep oceanic blue sunray dial and 300m water resistance." 
+            },
+
+            // SMART COLLECTION (6 items)
+            { 
+                id: 15, 
+                name: "Alberto Apex Titanium Smart X", 
+                category: "smart", 
+                price: 240, 
+                badge: "TITANIUM & ECG", 
+                img: "/w3.jpg", 
+                desc: "Grade-5 Titanium body featuring an Ultra HD AMOLED touchscreen with continuous ECG, Heart Rate & SpO2 sensors." 
+            },
+            { 
+                id: 16, 
+                name: "Alberto Hybrid Connect Pro", 
+                category: "smart", 
+                price: 310, 
+                badge: "HYBRID DUAL-DISPLAY", 
+                img: "/w4.jpg", 
+                desc: "Physical mechanical clock hands layered over a hidden OLED digital touchscreen beneath curved sapphire glass." 
+            },
+            { 
+                id: 17, 
+                name: "CyberTech Sync Series 9", 
+                category: "smart", 
+                price: 270, 
+                badge: "DUAL GPS & 14-DAY BATTERY", 
+                img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=90", 
+                desc: "Precision dual-frequency satellite GPS, 50-meter water resistance rating, and an extended 14-day battery life." 
+            },
+            { 
+                id: 18, 
+                name: "Platinum Fit Tracker Pro", 
+                category: "smart", 
+                price: 195, 
+                badge: "HEALTH SUITE PRO", 
+                img: "https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=800&q=90", 
+                desc: "Aerospace aluminum alloy body offering advanced REM sleep tracking, stress level analysis, and workout coaching." 
+            },
+            { 
+                id: 19, 
+                name: "Alberto Matrix Cyber Watch V2", 
+                category: "smart", 
+                price: 360, 
+                badge: "CERAMIC BEZEL & NFC", 
+                img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=90", 
+                desc: "Scratch-resistant ceramic bezel with contactless NFC payment chip, built-in voice AI assistant, and wireless charging." 
+            },
+            { 
+                id: 20, 
+                name: "Horizon LTE Cellular Ultra", 
+                category: "smart", 
+                price: 325, 
+                badge: "STANDALONE eSIM", 
+                img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=90", 
+                desc: "Embedded eSIM cellular connectivity allowing independent voice calls, messaging, and music streaming without a smartphone." 
+            },
+
+            // DESIGNER SERIES (4 items)
+            { 
+                id: 21, 
+                name: "Alberto Atelier Vanguard", 
+                category: "designer", 
+                price: 890, 
+                badge: "LIMITED DESIGNER", 
+                img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=90", 
+                desc: "Avant-garde asymmetric dial architecture housing handcrafted Swiss movement and a bespoke Italian calfskin strap." 
+            },
+            { 
+                id: 22, 
+                name: "Monochrome Haute Horlogerie", 
+                category: "designer", 
+                price: 980, 
+                badge: "EXCLUSIVE EDITION", 
+                img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=90", 
+                desc: "Minimalist matte-black ceramic construction accented by brushed gold geometric hands and a hidden crown feature." 
+            },
+            { 
+                id: 23, 
+                name: "Starlight Celestial Eclipse", 
+                category: "designer", 
+                price: 1150, 
+                badge: "AVANT-GARDE", 
+                img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=90", 
+                desc: "Aventurine glass dial depicting a starry night sky surrounded by a sculpted polished titanium case." 
+            },
+            { 
+                id: 24, 
+                name: "Alberto Prism Chroma Art", 
+                category: "designer", 
+                price: 760, 
+                badge: "CONCEPT DESIGN", 
+                img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=90", 
+                desc: "Iridescent sapphire crystal top coating creating dynamic spectrum reflections across a skeleton dial base." 
+            }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem("albertoCart")) || [];
+        let currentFilter = 'all';
+
+        // Display Products
+        function renderProducts(items) {
+            const grid = document.getElementById("productsGrid");
+            if(items.length === 0) {
+                grid.innerHTML = `<div class="text-center py-5" style="color: var(--text-muted);">No timepieces found matching your criteria.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(p => `
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img" onclick="quickView(${p.id})">
+                            <span class="badge-tag">${p.badge}</span>
+                            <img src="${p.img}" alt="${p.name}">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${p.category.toUpperCase()} SERIES</div>
+                            <h3>${p.name}</h3>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p>${p.desc}</p>
+                            <div class="price">$${p.price}</div>
+                            <div class="product-actions">
+                                <button class="add-cart" onclick="addToCart('${p.name}', ${p.price})">Add To Cart</button>
+                                <button class="quick-view" onclick="quickView(${p.id})"><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Products
+        function filterProducts(cat, btn) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            renderProducts(filtered);
+        }
+
+        // Search Products
+        function searchProducts() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const filtered = products.filter(p => 
+                (currentFilter === 'all' || p.category === currentFilter) &&
+                (p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query))
+            );
+            renderProducts(filtered);
+        }
+
+        // Quick View Modal
+        function quickView(id) {
+            const p = products.find(prod => prod.id === id);
+            document.getElementById("modalTitle").textContent = p.name;
+            document.getElementById("modalBody").innerHTML = `
+                <div class="col-md-6">
+                    <img src="${p.img}" class="img-fluid rounded" alt="${p.name}">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <span class="product-category">${p.category.toUpperCase()} COLLECTION</span>
+                    <h2 class="mt-2" style="font-family:'Playfair Display', serif">${p.name}</h2>
+                    <h3 class="gold-text my-3">$${p.price}</h3>
+                    <p style="color:var(--text-muted);">${p.desc}</p>
+                    <button class="btn-gold mt-3" onclick="addToCart('${p.name}', ${p.price})">Add To Cart &rarr;</button>
+                </div>
+            `;
+            new bootstrap.Modal(document.getElementById("productModal")).show();
+        }
+
+        // Cart Logic
+        function updateCart() {
+            document.getElementById("cartCount").textContent = cart.length;
+            let html = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                html = "<p class='text-center py-4' style='color:var(--text-muted);'>Your cart is empty.</p>";
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    html += `
+                        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding:10px 0;">
+                            <div>
+                                <div style="font-weight:600; color:#fff;">${item.name}</div>
+                                <div style="color:var(--accent-gold); font-size:0.9rem;">$${item.price}</div>
+                            </div>
+                            <button onclick="removeCart(${index})" style="background:none; border:1px solid var(--border-gold); color:var(--accent-gold); padding:2px 8px; border-radius:4px; cursor:pointer;">&times;</button>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById("cartItems").innerHTML = html;
+            document.getElementById("cartTotal").textContent = total;
+            localStorage.setItem("albertoCart", JSON.stringify(cart));
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+            alert(`${name} has been added to your cart.`);
+        }
+
+        function removeCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function openCart() {
+            updateCart();
+            new bootstrap.Modal(document.getElementById("cartModal")).show();
+        }
+
+        function checkout() {
+            if (cart.length === 0) return alert("Cart is empty!");
+            alert("Thank you! Our concierge will contact you soon.");
+        }
+
+        // Ticker Clock
+        function updateTicker() {
+            const now = new Date();
+            document.getElementById("tickerText").textContent =
+                "ALBERTO WATCHES • TIMELESS PRECISION • CURRENT DATE: " + now.toLocaleDateString() + " • TIME: " + now.toLocaleTimeString() + " • ";
+        }
+        setInterval(updateTicker, 1000);
+        updateTicker();
+
+        // Initial Load
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catParam = urlParams.get('category');
+            if(catParam) {
+                const lowerCat = catParam.toLowerCase();
+                if(lowerCat.includes('vintage')) filterProducts('vintage', document.querySelectorAll('.filter-btn')[1]);
+                else if(lowerCat.includes('luxury')) filterProducts('luxury', document.querySelectorAll('.filter-btn')[2]);
+                else if(lowerCat.includes('smart')) filterProducts('smart', document.querySelectorAll('.filter-btn')[3]);
+                else if(lowerCat.includes('designer')) filterProducts('designer', document.querySelectorAll('.filter-btn')[4]);
+            } else {
+                renderProducts(products);
+            }
+            updateCart();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,4949 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/><title>Alberto Watch | Luxury Timepieces</title><style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --card-bg-hover: rgba(30, 37, 48, 0.85);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 32px; /* Space for ticker */
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ================= HEADER / NAVBAR ================= */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        .logo-icon {
+            color: var(--accent-gold);
+            font-size: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-btn {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-btn:hover {
+            background: var(--gold-gradient);
+            color: #0b0f19;
+        }
+
+        .visitor-counter {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .visitor-counter span {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            min-height: 80vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 60px 5%;
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .hero-small {
+            color: var(--accent-gold);
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 35px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-gold:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            color: #0b0f19;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ================= SECTIONS ================= */
+        .section {
+            padding: 90px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* ================= CATEGORIES ================= */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            height: 420px;
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            transition: all 0.4s ease;
+        }
+
+        .category-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s ease;
+            opacity: 0.7;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.08);
+            opacity: 0.85;
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(to top, rgba(11, 15, 25, 0.95) 10%, rgba(11, 15, 25, 0.2) 70%);
+        }
+
+        .category-number {
+            color: var(--accent-gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .category-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .category-overlay p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 18px;
+        }
+
+        .category-btn {
+            align-self: flex-start;
+            padding: 8px 18px;
+            border: 1px solid var(--border-gold);
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-btn:hover {
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border-color: transparent;
+        }
+
+        /* ================= FEATURED PRODUCTS ================= */
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .product-img {
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.06);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 14px;
+        }
+
+        .add-cart {
+            flex: 1;
+            min-height: 46px;
+            padding: 11px 18px;
+            background: linear-gradient(135deg, #d4af37 0%, #f6d77a 45%, #b88918 100%);
+            color: #111;
+            border: 1px solid rgba(255,255,255,.28);
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all .28s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 7px 18px rgba(212,175,55,.18);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-cart::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.45) 50%, transparent 75%);
+            transform: translateX(-120%);
+            transition: transform .6s ease;
+        }
+
+        .add-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 11px 28px rgba(212,175,55,.32);
+            filter: brightness(1.06);
+        }
+
+        .add-cart:hover::before {
+            transform: translateX(120%);
+        }
+
+        .add-cart:active {
+            transform: translateY(0) scale(.98);
+        }
+
+        .add-cart i, .add-cart span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .heart {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heart:hover {
+            color: var(--accent-gold);
+            border-color: var(--border-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ================= WHY CHOOSE ================= */
+        .why-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 35px 25px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .why-box:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--accent-gold);
+            margin: 0 auto 20px;
+        }
+
+        .why-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .why-box p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ================= STORE BANNER ================= */
+        .store-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 60px 30px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, rgba(22, 27, 34, 0.85) 100%);
+        }
+
+        .store-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .store-box p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 0.95rem;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 70px 5% 40px;
+            background: rgba(7, 10, 17, 0.95);
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-title {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .social {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social a {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .social a:hover {
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border-color: transparent;
+        }
+
+        .copyright {
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            padding-top: 25px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ================= TICKER ================= */
+        .ticker {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            z-index: 10000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .ticker-text {
+            white-space: nowrap;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* ================= MODAL ================= */
+        .modal-content {
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            backdrop-filter: blur(16px);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .cart-list {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 850px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-bg-img {
+                width: 100%;
+                opacity: 0.15;
+            }
+        }
+        :root {
+            --bg-dark: #080808;
+            --card-dark: #121212;
+            --accent-gold: #d4af37;
+            --text-muted: #999;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fff;
+            overflow-x: hidden;
+            padding-bottom: 35px; /* Space for ticker */
+        }
+
+        /* ================= NAVBAR ================= */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--accent-gold);
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-btn {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .visitor-counter {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 6px 10px;
+            border-radius: 4px;
+            color: var(--accent-gold);
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #080808 10%, rgba(8,8,8,0.7) 50%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .hero-small {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 5vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .gold-text {
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #000;
+            padding: 12px 28px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--accent-gold);
+            text-decoration: none;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .btn-gold:hover {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* ================= SECTIONS GENERAL ================= */
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-title small {
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* ================= CATEGORIES (Grid) ================= */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 400px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #111;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.2) 80%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+        }
+
+        .category-number {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .category-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .category-overlay p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .category-btn {
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: left;
+            padding: 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category-btn:hover {
+            color: #fff;
+        }
+
+        /* ================= PRODUCTS ================= */
+        .product-card {
+            background: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.4s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.06);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--accent-gold);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 3px;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-cart {
+            flex-grow: 1;
+            background: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #fff;
+        }
+
+        .heart {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .heart:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* ================= WHY CHOOSE ================= */
+        .why-box {
+            background: var(--card-dark);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 6px;
+            height: 100%;
+        }
+
+        .why-icon {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .why-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .why-box p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ================= STORE BANNER ================= */
+        .store-box {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1500&q=80') center/cover;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .store-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .store-box p {
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            font-size: 0.9rem;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #040404;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 60px 5% 30px 5%;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-gold);
+        }
+
+        .footer-about {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 350px;
+        }
+
+        .social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 40px;
+            padding-top: 20px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        /* ================= LIVE TICKER ================= */
+        .ticker {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: var(--accent-gold);
+            color: #000;
+            z-index: 9999;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-text {
+            white-space: nowrap;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            animation: tickerScroll 25s linear infinite;
+        }
+
+        @keyframes tickerScroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Modal Styles fix */
+        .modal-content {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #fff;
+        }
+        .modal-header {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .modal-footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+    </style><style>
+        #products{
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        #products *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #products{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            padding-bottom: 32px;
+        }
+
+        #products .gold-text{
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ================= HEADER / NAVBAR ================= */
+        #products .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        #products .logo-text{
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #products .logo-text span{
+            color: var(--accent-gold);
+        }
+
+        #products .logo-icon{
+            color: var(--accent-gold);
+            font-size: 20px;
+        }
+
+        #products nav{
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        #products nav a{padding:6px 4px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        #products nav a:hover, #products nav a.active{
+            color: var(--accent-gold);
+        }
+
+        #products .cart-btn{
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #products .cart-btn:hover{
+            background: var(--gold-gradient);
+            color: #0b0f19;
+        }
+
+        /* ================= PAGE BANNER ================= */
+        #products .page-banner{
+            padding: 60px 5% 40px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #products .page-banner small{
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        #products .page-banner h1{
+            font-family: "Playfair Display", serif;
+            font-size: 2.8rem;
+            margin-top: 8px;
+        }
+
+        /* ================= FILTERS & SEARCH ================= */
+        #products .filter-section{
+            padding: 30px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: rgba(22, 27, 34, 0.4);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #products .category-buttons{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #products .filter-btn{
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #products .filter-btn:hover, #products .filter-btn.active{
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border-color: transparent;
+        }
+
+        #products .search-box{
+            position: relative;
+            min-width: 260px;
+        }
+
+        #products .search-box input{
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 15px 8px 38px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #products .search-box input:focus{
+            border-color: var(--border-gold);
+        }
+
+        #products .search-box i{
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ================= PRODUCTS GRID ================= */
+        #products .products-container{
+            padding: 50px 5%;
+        }
+
+        #products .product-card{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #products .product-card:hover{
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        #products .product-img{
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        #products .product-img img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        #products .product-card:hover .product-img img{
+            transform: scale(1.06);
+        }
+
+        #products .badge-tag{
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 800;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        #products .product-info{
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        #products .product-category{
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        #products .product-info h3{
+            font-family: "Playfair Display", serif;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        #products .stars{
+            color: var(--accent-gold);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        #products .product-info p{
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        #products .price{
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        #products .product-actions{
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        #products .add-cart{
+            flex-grow: 1;
+            padding: 10px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #products .add-cart:hover{
+            opacity: 0.9;
+        }
+
+        #products .quick-view{
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #products .quick-view:hover{
+            color: var(--accent-gold);
+            border-color: var(--border-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ================= FOOTER ================= */
+        #products footer{
+            border-top: 1px solid var(--border-color);
+            padding: 50px 5% 30px;
+            background: rgba(7, 10, 17, 0.95);
+            margin-top: 60px;
+        }
+
+        #products .copyright{
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ================= MODAL ================= */
+        #products .modal-content{
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-gold);
+            border-radius: 14px;
+            backdrop-filter: blur(16px);
+        }
+
+        #products .modal-header{
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        #products .modal-title{
+            font-family: "Playfair Display", serif;
+            font-size: 1.4rem;
+        }
+
+        #products .btn-close{
+            filter: invert(1);
+        }
+
+        #products .modal-body{
+            padding: 20px;
+        }
+
+        #products .modal-footer{
+            border-top: 1px solid var(--border-color);
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        #products .btn-gold{
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        #products .btn-gold:hover{
+            opacity: 0.9;
+            color: #0b0f19;
+        }
+
+        /* TICKER */
+        #products .ticker{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            z-index: 10000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        #products .ticker-text{
+            white-space: nowrap;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        @media(max-width: 768px) {
+            #products .header{ flex-direction: column; gap: 15px; }
+            #products .filter-section{ flex-direction: column; align-items: stretch; }
+            #products .search-box{ width: 100%; }
+        }
+    </style><style>
+        /* CSS Variables for Luxury Theme */
+        #about{
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --dark-bg: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #f3f4f6;
+            --text-light: #f5f5f5;
+            --text-muted: #9ca3af;
+            --text-gray: #a0a0a0;
+            --border-color: #1f2937;
+        }
+
+        /* Global Reset */
+        #about *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #about{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        #about .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #about .logo-text{
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        #about .logo-text span{
+            color: var(--accent-gold);
+        }
+
+        #about nav{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #about nav a{padding:6px 4px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        #about nav a:hover, #about nav a.active{
+            color: var(--accent-gold);
+        }
+
+        /* Gold Gradient Text Utility */
+        #about .gold-text{
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section with Parallax Effect */
+        #about .hero{
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(to bottom, rgba(11, 15, 25, 0.6), var(--dark-bg)), 
+                        url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        #about .hero-content h1{
+            font-family: "Playfair Display", serif;
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        #about .hero-content p{
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* Main Container */
+        #about .container{
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Story Section */
+        #about .story-section{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 100px;
+        }
+
+        #about .story-text{
+            flex: 1 1 450px;
+        }
+
+        #about .story-text h2{
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        #about .story-text h2::after{
+            content: "";
+            width: 70px;
+            height: 3px;
+            background: var(--gold-gradient);
+            display: block;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        #about .story-text p{
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        #about .story-image-wrapper{
+            flex: 1 1 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        #about .story-image-wrapper img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #about .story-image-wrapper:hover img{
+            transform: scale(1.08);
+        }
+
+        /* Stats Counter Section */
+        #about .stats-section{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        #about .stat-box{
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        #about .stat-box h3{
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        #about .stat-box p{
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Features Section */
+        #about .features-section{
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        #about .features-section h2{
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        #about .features-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        #about .feature-box{
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 25px;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about .feature-box:hover{
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        #about .feature-icon{
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        #about .feature-box h3{
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        #about .feature-box p{
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Call to Action Section */
+        #about .last-btn{
+            text-align: center;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(5, 5, 5, 0.9)),
+                        url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc3_-PKPl1Smx7aSmxU7qgIK_vZQ_GgiXHjwwepVQ1Pg&s=10") center/cover;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 80px 20px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        #about .last-btn h2{
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+
+        #about .last-btn p{
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-size: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #about .button{
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--accent-gold);
+            color: #000000;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        #about .button:hover{
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+            background: #e6be44;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 850px) {
+            #about .header{
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #about .hero-content h1{
+                font-size: 2.4rem;
+            }
+            #about .story-text h2, #about .features-section h2{
+                font-size: 2rem;
+            }
+            #about .container{
+                padding: 50px 20px;
+            }
+            #about .hero{
+                background-attachment: scroll;
+            }
+        }
+    </style><style>
+        /* CSS Variables for Luxury Dark Theme */
+        #technology{
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Global Reset */
+        #technology *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #technology{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        #technology .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #technology .logo-text{
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        #technology .logo-text span{
+            color: var(--accent-gold);
+        }
+
+        #technology nav{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #technology nav a{padding:6px 4px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        #technology nav a:hover, #technology nav a.active{
+            color: var(--accent-gold);
+        }
+
+        /* Gold Gradient Utility */
+        #technology .gold-text{
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        #technology .hero{ 
+            position: relative;
+            text-align: center; 
+            padding: 100px 20px 80px; 
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        #technology .hero h1{ 
+            font-family: "Playfair Display", serif;
+            font-size: 3.2rem; 
+            margin-bottom: 18px; 
+            letter-spacing: 1px;
+        }
+
+        #technology .hero p{ 
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            max-width: 720px; 
+            margin: 0 auto; 
+            font-weight: 300;
+        }
+
+        /* Main Section & Cards Grid */
+        #technology main{ 
+            max-width: 1200px; 
+            margin: 60px auto; 
+            padding: 0 20px; 
+        }
+
+        #technology .section-title{ 
+            text-align: center; 
+            font-family: "Playfair Display", serif;
+            font-size: 2.3rem; 
+            margin-bottom: 50px; 
+        }
+
+        #technology .grid{ 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+        }
+
+        #technology .card{ 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; 
+            padding: 35px 30px; 
+            transition: all 0.4s ease; 
+            position: relative;
+            backdrop-filter: blur(8px);
+        }
+
+        #technology .card:hover{ 
+            transform: translateY(-8px); 
+            border-color: var(--border-gold); 
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.12); 
+        }
+
+        #technology .icon-box{
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--accent-gold);
+            margin-bottom: 22px;
+        }
+
+        #technology .card h3{ 
+            font-size: 1.25rem; 
+            color: #fff; 
+            margin-bottom: 12px; 
+            font-family: "Playfair Display", serif;
+        }
+
+        #technology .card p{ 
+            font-size: 0.95rem; 
+            color: var(--text-muted); 
+            line-height: 1.6;
+        }
+
+        /* Specification Table Section */
+        #technology .spec-section{ 
+            background: rgba(17, 24, 39, 0.4); 
+            border-top: 1px solid var(--border-color); 
+            border-bottom: 1px solid var(--border-color); 
+            padding: 80px 20px; 
+            margin-top: 80px; 
+        }
+
+        #technology .table-container{ 
+            max-width: 960px; 
+            margin: 0 auto; 
+            overflow-x: auto; 
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        #technology table{ 
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left; 
+            background: var(--bg-color);
+        }
+
+        #technology th, #technology td{ 
+            padding: 18px 25px; 
+            border-bottom: 1px solid var(--border-color); 
+            font-size: 0.95rem; 
+        }
+
+        #technology th{ 
+            background: rgba(212, 175, 55, 0.08); 
+            color: var(--accent-gold); 
+            font-size: 1rem; 
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        #technology td{
+            color: var(--text-main);
+        }
+
+        #technology tr:last-child td{
+            border-bottom: none;
+        }
+
+        #technology tr:hover td{
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Footer */
+        #technology footer{ 
+            text-align: center; 
+            padding: 35px 20px; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border-color); 
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 850px) {
+            #technology .header{
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #technology .hero h1{ font-size: 2.3rem; }
+            #technology .hero p{ font-size: 1rem; }
+            #technology .section-title{ font-size: 1.8rem; }
+            #technology main{ margin: 40px auto; }
+        }
+    </style><style>
+        #support{
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        #support *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #support{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        #support .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #support .logo-text{
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        #support .logo-text span{
+            color: var(--accent-gold);
+        }
+
+        #support nav{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #support nav a{padding:6px 4px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        #support nav a:hover, #support nav a.active{
+            color: var(--accent-gold);
+        }
+
+        #support .gold-text{
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Support Hero Header */
+        #support .hero{ 
+            text-align: center; 
+            padding: 80px 20px 60px; 
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        #support .hero h1{ 
+            font-family: "Playfair Display", serif;
+            font-size: 2.8rem; 
+            margin-bottom: 12px; 
+        }
+
+        #support .hero p{ 
+            font-size: 1.05rem; 
+            color: var(--text-muted); 
+            max-width: 650px; 
+            margin: 0 auto; 
+        }
+
+        /* Main Container */
+        #support main{
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Quick Assistance Cards */
+        #support .grid-cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        #support .support-card{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        #support .support-card:hover{
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        #support .support-card .icon-box{
+            width: 55px;
+            height: 55px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--accent-gold);
+            margin: 0 auto 18px;
+        }
+
+        #support .support-card h3{
+            font-family: "Playfair Display", serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        #support .support-card p{
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        #support .support-card a{
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        #support .support-card a:hover{
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        #support .section-title{
+            text-align: center;
+            font-family: "Playfair Display", serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        #support .faq-container{
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        #support .faq-item{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 20px 25px;
+        }
+
+        #support .faq-question{
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #support .faq-question i{
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        #support .faq-answer{
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* Support Form Section */
+        #support .form-section{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(8px);
+        }
+
+        #support .form-section h2{
+            font-family: "Playfair Display", serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        #support .form-section p{
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        #support .form-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        #support .form-group{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        #support .form-group.full{
+            grid-column: span 2;
+        }
+
+        #support .form-group label{
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #support .form-group input, #support .form-group select, #support .form-group textarea{
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(11, 15, 25, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+
+        #support .form-group input:focus, #support .form-group select:focus, #support .form-group textarea:focus{
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+        }
+
+        #support .btn-submit{
+            grid-column: span 2;
+            padding: 15px;
+            background: var(--gold-gradient);
+            color: #0b0f19;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #support .btn-submit:hover{
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        #support footer{ 
+            text-align: center; 
+            padding: 35px 20px; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border-color); 
+            margin-top: 80px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 850px) {
+            #support .header{
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #support .form-grid{
+                grid-template-columns: 1fr;
+            }
+            #support .form-group.full, #support .btn-submit{
+                grid-column: span 1;
+            }
+            #support .hero h1{ font-size: 2.2rem; }
+        }
+    </style><style>
+        /* CSS Variables for Luxury Dark Theme */
+        #stores{
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Global Reset */
+        #stores *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #stores{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        #stores .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #stores .logo-text{
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        #stores .logo-text span{
+            color: var(--accent-gold);
+        }
+
+        #stores nav{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #stores nav a{padding:6px 4px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        #stores nav a:hover, #stores nav a.active{
+            color: var(--accent-gold);
+        }
+
+        /* Gold Gradient Utility */
+        #stores .gold-text{
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Search Section */
+        #stores .search-container{ 
+            text-align: center; 
+            padding: 80px 20px 60px; 
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        #stores .search-container h1{ 
+            font-family: "Playfair Display", serif;
+            font-size: 2.8rem; 
+            margin-bottom: 12px; 
+        }
+
+        #stores .search-container p{
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        #stores .search-box{ 
+            display: flex; 
+            justify-content: center; 
+            gap: 12px; 
+            max-width: 650px; 
+            margin: 0 auto; 
+        }
+
+        #stores .search-box input{ 
+            flex-grow: 1; 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            border: 1px solid var(--border-color); 
+            background: rgba(22, 27, 34, 0.8); 
+            color: #fff; 
+            font-size: 15px; 
+            outline: none; 
+            transition: 0.3s;
+        }
+
+        #stores .search-box input:focus{ 
+            border-color: var(--accent-gold); 
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        #stores .search-box button{ 
+            padding: 15px 30px; 
+            border: none; 
+            background: var(--gold-gradient); 
+            color: #0b0f19; 
+            font-weight: 700; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            transition: 0.3s ease; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #stores .search-box button:hover{ 
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Locator Layout */
+        #stores .locator-layout{ 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 30px; 
+            max-width: 1280px; 
+            margin: 50px auto; 
+            padding: 0 20px; 
+        }
+
+        /* Store List */
+        #stores .store-list{ 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+            max-height: 600px; 
+            overflow-y: auto; 
+            padding-right: 12px; 
+        }
+
+        /* Custom Scrollbar for Store List */
+        #stores .store-list::-webkit-scrollbar{
+            width: 6px;
+        }
+        #stores .store-list::-webkit-scrollbar-track{
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        #stores .store-list::-webkit-scrollbar-thumb{
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+        }
+
+        #stores .store-card{ 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 14px; 
+            padding: 24px; 
+            transition: all 0.3s ease; 
+            backdrop-filter: blur(8px);
+        }
+
+        #stores .store-card:hover{ 
+            border-color: var(--border-gold); 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
+        }
+
+        #stores .store-card h3{ 
+            color: #fff; 
+            margin-bottom: 12px; 
+            font-size: 1.2rem; 
+            font-family: "Playfair Display", serif;
+        }
+
+        #stores .store-info{
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+
+        #stores .store-info i{
+            color: var(--accent-gold);
+            margin-top: 4px;
+            width: 16px;
+        }
+
+        #stores .store-status{ 
+            display: inline-block; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            margin-top: 10px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #stores .status-open{ 
+            background: rgba(16, 185, 129, 0.15); 
+            color: #10b981; 
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        #stores .store-actions{ 
+            margin-top: 18px; 
+            display: flex; 
+            gap: 12px; 
+        }
+
+        #stores .btn-dir{ 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px; 
+            background: rgba(212, 175, 55, 0.1); 
+            color: var(--accent-gold); 
+            border: 1px solid var(--border-gold); 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            transition: all 0.3s ease;
+        }
+
+        #stores .btn-dir:hover{ 
+            background: var(--gold-gradient); 
+            color: #0b0f19;
+        }
+
+        /* Map Box */
+        #stores .map-box{ 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 14px; 
+            min-height: 550px; 
+            overflow: hidden; 
+            position: relative; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        #stores .map-box iframe{ 
+            width: 100%; 
+            height: 100%; 
+            min-height: 550px; 
+            border: none; 
+            filter: grayscale(80%) invert(90%) contrast(1.2);
+        }
+
+        /* Footer */
+        #stores footer{ 
+            text-align: center; 
+            padding: 35px 20px; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border-color); 
+            margin-top: 60px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            #stores .locator-layout{ 
+                grid-template-columns: 1fr; 
+            }
+            #stores .header{
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #stores .search-container h1{ font-size: 2rem; }
+            #stores .search-box{ flex-direction: column; }
+            #stores .search-box button{ justify-content: center; }
+        }
+    </style><style>
+        #contact{
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --accent-gold: #d4af37;
+            --accent-glow: rgba(212, 175, 55, 0.25);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        #contact *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #contact{
+            font-family: "Plus Jakarta Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Modern Glass Header */
+        #contact .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #contact .logo-text{
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        #contact .logo-text span{
+            color: var(--accent-gold);
+        }
+
+        #contact nav{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #contact nav a{padding:6px 4px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        #contact nav a:hover, #contact nav a.active{
+            color: var(--accent-gold);
+        }
+
+        /* Hero Header */
+        #contact .hero-section{
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        #contact .hero-section h1{
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #contact .hero-section p{
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Contact Layout */
+        #contact .contact-container{
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 40px;
+            width: 100%;
+        }
+
+        /* Left Column: Direct Info Cards */
+        #contact .info-panel{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #contact .info-card{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #contact .info-card:hover{
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--accent-glow);
+        }
+
+        #contact .icon-wrapper{
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        #contact .info-details h4{
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        #contact .info-details p{
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Right Column: Form Card */
+        #contact .form-card{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        #contact .form-card h2{
+            font-size: 22px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        #contact .form-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        #contact .field-full{
+            grid-column: span 2;
+        }
+
+        #contact .input-group{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #contact .input-group label{
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #contact .input-group input, #contact .input-group select, #contact .input-group textarea{
+            background: #0b0f19;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        #contact .input-group input:focus, #contact .input-group select:focus, #contact .input-group textarea:focus{
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        #contact .submit-btn{
+            grid-column: span 2;
+            margin-top: 10px;
+            background: var(--accent-gold);
+            color: #000000;
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        #contact .submit-btn:hover{
+            background: #e6be44;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--accent-glow);
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 850px) {
+            #contact .header{
+                flex-direction: column;
+                gap: 15px;
+            }
+            #contact .contact-container{
+                grid-template-columns: 1fr;
+            }
+            #contact .form-grid{
+                grid-template-columns: 1fr;
+            }
+            #contact .field-full, #contact .submit-btn{
+                grid-column: span 1;
+            }
+        }
+    </style><style>
+html { scroll-behavior:smooth; }
+body { margin:0; background:#090909; }
+.single-page-section { scroll-margin-top:90px; position:relative; }
+.single-page-section > .page-inner { width:100%; }
+#home .hero { min-height:calc(100vh - 86px); }
+#home .hero-content { z-index:3; }
+#home .hero-watch { position:absolute; right:4%; top:50%; transform:translateY(-50%); width:min(53vw,720px); z-index:2; pointer-events:none; filter:drop-shadow(0 30px 55px rgba(0,0,0,.55)); }
+#home .hero-watch img { display:block; width:100%; height:auto; }
+#home .seconds-hand { position:absolute; left:52.55%; top:46.45%; width:9%; height:2px; background:#e3342f; transform-origin:0 50%; transform:rotate(57deg); border-radius:99px; box-shadow:0 0 7px rgba(227,52,47,.85); animation:secondsSweep 60s linear infinite; }
+#home .seconds-hand::after { content:""; position:absolute; right:-2px; top:50%; width:7px; height:7px; transform:translateY(-50%); border-radius:50%; background:#e3342f; box-shadow:0 0 6px rgba(227,52,47,.8); }
+#home .seconds-pivot { position:absolute; left:52.55%; top:46.45%; width:11px; height:11px; transform:translate(-50%,-50%); border-radius:50%; background:#d9ae42; border:2px solid #111; z-index:4; }
+@keyframes secondsSweep { from { transform:rotate(57deg); } to { transform:rotate(417deg); } }
+#home .hero-bg-img { opacity:.16; }
+#home .hero-content { max-width:58%; }
+.section-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(212,175,55,.45),transparent); }
+.single-nav-link { cursor:pointer; }
+@media (max-width: 900px){
+ #home .hero-watch { position:relative; right:auto; top:auto; transform:none; width:min(92vw,620px); margin:10px auto 0; order:2; }
+ #home .hero-content { max-width:100%; }
+ #home .hero { display:flex; flex-direction:column; justify-content:center; padding-bottom:30px; }
+}
+@media (max-width: 600px){ #home .hero-watch{width:108vw;margin-left:-4vw;} #home .seconds-hand{width:9%;} }
+</style>
+<style id="single-page-fix">
+/* ===== SINGLE PAGE VISIBILITY + CARD RESTORE ===== */
+body{background:#090909 !important;color:#f5f5f5 !important;}
+.single-page-section{display:block !important;visibility:visible !important;opacity:1 !important;}
+.single-page-section .page-inner{display:block !important;visibility:visible !important;}
+
+/* Make every section heading readable */
+.single-page-section h1,
+.single-page-section h2,
+.single-page-section h3,
+.single-page-section h4,
+.single-page-section .section-title h2,
+.single-page-section .page-banner h1,
+.single-page-section .hero h1,
+.single-page-section .hero-section h1,
+.single-page-section .story-text h2,
+.single-page-section .features-section h2,
+.single-page-section .spec-section h2,
+.single-page-section .form-section h2,
+.single-page-section .search-container h2{color:#f7f3ea !important;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+.single-page-section .section-title small,
+.single-page-section .page-banner small{color:#d4af37 !important;opacity:1 !important;}
+.single-page-section .section-title p,
+.single-page-section .hero p,
+.single-page-section .story-text p,
+.single-page-section .feature-box p,
+.single-page-section .why-box p{color:#b8b8b8 !important;opacity:1 !important;}
+
+/* Featured cards on Home */
+#featured-products{display:block !important;}
+#featured-products .product-card{
+  display:flex !important;flex-direction:column !important;height:100% !important;
+  background:linear-gradient(180deg,rgba(25,25,25,.96),rgba(13,13,13,.98)) !important;
+  border:1px solid rgba(212,175,55,.22) !important;border-radius:16px !important;
+  overflow:hidden !important;box-shadow:0 14px 40px rgba(0,0,0,.28) !important;
+}
+#featured-products .product-img{height:270px !important;background:#111 !important;overflow:hidden !important;position:relative !important;}
+#featured-products .product-img img{width:100% !important;height:100% !important;object-fit:cover !important;display:block !important;}
+#featured-products .product-info{padding:20px !important;display:flex !important;flex-direction:column !important;flex:1 !important;}
+#featured-products .product-info h3{color:#fff !important;font-family:'Playfair Display',serif !important;font-size:21px !important;margin:8px 0 !important;}
+#featured-products .product-info p{color:#aaa !important;min-height:48px !important;}
+#featured-products .price{color:#d4af37 !important;font-size:21px !important;font-weight:800 !important;margin:10px 0 !important;}
+#featured-products .product-actions{margin-top:auto !important;display:flex !important;gap:10px !important;}
+#featured-products .add-cart{flex:1 !important;display:block !important;}
+
+/* Category + Why Choose cards */
+#home .category-grid{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:24px !important;}
+#home .category-card,#home .why-box{display:block !important;visibility:visible !important;opacity:1 !important;}
+#home .why-box{height:100% !important;background:linear-gradient(180deg,#151515,#0d0d0d) !important;border:1px solid rgba(212,175,55,.2) !important;border-radius:14px !important;padding:28px 22px !important;text-align:center !important;}
+#home .why-box h3{color:#f5f5f5 !important;margin:14px 0 10px !important;font-family:'Playfair Display',serif !important;}
+#home .why-icon{color:#d4af37 !important;}
+
+/* Catalog section cards */
+#products .page-banner{display:block !important;text-align:center !important;padding:85px 20px 45px !important;}
+#products .page-banner h1{color:#fff !important;font-family:'Playfair Display',serif !important;font-size:clamp(2.2rem,5vw,4rem) !important;}
+#products .filter-section,#products .products-container{display:block !important;visibility:visible !important;}
+#products .products-container{padding:20px 5% 90px !important;}
+#products .product-card{display:flex !important;flex-direction:column !important;height:100% !important;visibility:visible !important;opacity:1 !important;}
+#products .product-info h3{color:#fff !important;}
+#products .products-container .row{align-items:stretch !important;}
+#products .products-container .col-lg-3{display:flex !important;}
+#products .products-container .product-card{width:100% !important;min-height:100% !important;}
+#products .products-container .product-img img{display:block !important;}
+
+/* Mobile */
+@media(max-width:1000px){
+ #home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+ .header{flex-wrap:wrap !important;gap:14px !important;}
+ .header nav{flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;}
+}
+@media(max-width:600px){
+ #home .category-grid{grid-template-columns:1fr !important;}
+ #featured-products .product-img{height:230px !important;}
+ .header nav a{padding:6px 4px;font-size:11px !important;}
+}
+</style>
+
+<style id="final-visibility-fix">
+/* ===== FINAL SINGLE-PAGE VISIBILITY + NATURAL SECONDS HAND ===== */
+#technology, #support {
+  position: relative !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #f5f5f5 !important;
+  background: #0b0f19 !important;
+  overflow: visible !important;
+}
+#technology > .page-inner, #support > .page-inner {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+#technology .hero, #support .hero {
+  position: relative !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: radial-gradient(circle at 50% 35%, rgba(212,175,55,.11), rgba(11,15,25,1) 72%) !important;
+  padding: 95px 24px 70px !important;
+  min-height: 0 !important;
+}
+#technology .hero h1, #support .hero h1 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #fff !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: clamp(2.35rem, 4vw, 3.4rem) !important;
+  line-height: 1.15 !important;
+  margin: 0 0 18px !important;
+  text-shadow: 0 3px 18px rgba(0,0,0,.8) !important;
+}
+#technology .hero h1 .gold-text, #support .hero h1 .gold-text {
+  color: #d4af37 !important;
+  -webkit-text-fill-color: #d4af37 !important;
+  background: none !important;
+}
+#technology .hero p, #support .hero p {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #d1d5db !important;
+  font-size: 1.08rem !important;
+  line-height: 1.75 !important;
+  max-width: 760px !important;
+  margin: 0 auto !important;
+}
+#technology main, #support main { display:block !important; visibility:visible !important; opacity:1 !important; }
+#technology .section-title, #support .section-title,
+#technology .spec-section .section-title, #support .form-section h2 {
+  color:#fff !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  text-shadow:0 3px 15px rgba(0,0,0,.7) !important;
+}
+#technology .card, #support .support-card, #technology .table-container,
+#support .faq-item, #support .form-section {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+#technology .card h3, #support .support-card h3,
+#technology .card p, #support .support-card p,
+#support .faq-question, #support .faq-answer,
+#technology th, #technology td {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+#home .seconds-hand {
+  width: 9% !important;
+  height: 2px !important;
+  border-radius: 99px !important;
+}
+#home .seconds-hand::after {
+  width: 5px !important;
+  height: 5px !important;
+}
+@media (max-width: 600px){
+  #home .seconds-hand { width: 9% !important; }
+  #technology .hero, #support .hero { padding: 70px 20px 55px !important; }
+  #technology .hero h1, #support .hero h1 { font-size: 2.15rem !important; }
+}
+</style>
+
+
+<style>
+/* ===== Premium Cart Quantity Controls ===== */
+#cartModal .cart-list { max-height: 55vh; overflow-y: auto; }
+.cart-item {
+    display:flex; align-items:center; gap:14px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+.cart-item:last-child { border-bottom:0; }
+.cart-item-info { flex:1; min-width:0; }
+.cart-item-name {
+    color:#fff; font-weight:800; font-size:.95rem;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.cart-item-price { color:var(--accent-gold); font-size:.82rem; margin-top:3px; }
+.cart-item-total { color:#fff; font-weight:800; margin-top:3px; }
+.qty-control {
+    display:flex; align-items:center; gap:7px;
+    padding:4px; border:1px solid rgba(212,175,55,.28);
+    background:rgba(212,175,55,.05); border-radius:10px;
+}
+.qty-btn {
+    width:34px; height:34px; border:0; border-radius:7px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:19px; font-weight:900; cursor:pointer;
+    transition:.2s ease;
+}
+.qty-minus { background:rgba(212,175,55,.10); color:var(--accent-gold); }
+.qty-plus { background:var(--accent-gold); color:#080808; }
+.qty-btn:hover { transform:scale(1.06); }
+.qty-number { min-width:26px; text-align:center; color:#fff; font-weight:900; }
+.remove-btn {
+    width:34px; height:34px; border-radius:7px;
+    border:1px solid rgba(255,90,90,.35);
+    background:rgba(255,70,70,.05); color:#ff8d8d;
+    cursor:pointer; font-size:17px; transition:.2s ease;
+}
+.remove-btn:hover { background:rgba(255,70,70,.15); transform:scale(1.06); }
+.cart-empty { text-align:center; padding:30px 10px; color:var(--text-muted); }
+.cart-empty i { display:block; font-size:32px; color:var(--accent-gold); margin-bottom:10px; }
+.cart-toast {
+    position:fixed; right:24px; bottom:55px; z-index:11000;
+    background:#151515; color:#fff; border:1px solid rgba(212,175,55,.45);
+    border-radius:10px; padding:12px 16px; box-shadow:0 10px 30px rgba(0,0,0,.35);
+    opacity:0; transform:translateY(12px); pointer-events:none; transition:.25s ease;
+}
+.cart-toast.show { opacity:1; transform:translateY(0); }
+.cart-toast i { color:var(--accent-gold); margin-right:7px; }
+</style>
+
+<style id="sitemap-styles">
+#sitemap{padding:90px 5%;background:#090909;border-top:1px solid rgba(212,175,55,.14);}
+#sitemap .sitemap-wrap{max-width:1200px;margin:0 auto;}
+#sitemap .sitemap-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:38px;}
+#sitemap .sitemap-card{background:linear-gradient(180deg,#151515,#0d0d0d);border:1px solid rgba(212,175,55,.18);border-radius:14px;padding:25px;transition:.3s;}
+#sitemap .sitemap-card:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.5);box-shadow:0 12px 30px rgba(0,0,0,.35);}
+#sitemap .sitemap-card h3{font-family:'Playfair Display',serif;color:#f7f3ea;font-size:1.25rem;margin-bottom:16px;}
+#sitemap .sitemap-card h3 i{color:#d4af37;margin-right:8px;}
+#sitemap .sitemap-links{list-style:none;margin:0;padding:0;}
+#sitemap .sitemap-links li{margin:10px 0;}
+#sitemap .sitemap-links a{color:#aaa;text-decoration:none;font-size:.88rem;transition:.25s;display:inline-flex;align-items:center;gap:8px;}
+#sitemap .sitemap-links a:hover{color:#d4af37;transform:translateX(4px);}
+#sitemap .sitemap-links a i{font-size:.65rem;color:#d4af37;}
+#sitemap .sitemap-bottom{margin-top:28px;padding:18px 20px;border:1px solid rgba(212,175,55,.15);border-radius:12px;text-align:center;color:#999;font-size:.85rem;}
+#sitemap .sitemap-bottom a{color:#d4af37;text-decoration:none;font-weight:700;}
+@media(max-width:950px){#sitemap .sitemap-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){#sitemap .sitemap-grid{grid-template-columns:1fr;}}
+</style>
+
+<style id="nav-font-size-fix">
+.header nav a { font-size: 0.82rem !important; }
+</style>
+
+<style id="cart-right-drawer-fix">
+/* Right-side shopping cart drawer */
+#cartModal .modal-dialog{
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    width: min(430px, 92vw) !important;
+    max-width: 430px !important;
+    height: 100vh !important;
+    transform: translateX(100%) !important;
+    transition: transform .35s ease !important;
+}
+#cartModal.show .modal-dialog{
+    transform: translateX(0) !important;
+}
+#cartModal .modal-content{
+    height: 100vh !important;
+    border-radius: 0 !important;
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+#cartModal .modal-body{
+    overflow-y: auto !important;
+    flex: 1 1 auto !important;
+}
+#cartModal .modal-header,
+#cartModal .modal-footer{
+    flex-shrink: 0 !important;
+}
+#cartModal.modal{
+    --bs-modal-width: 430px;
+}
+#cartModal .modal-backdrop{
+    background: rgba(0,0,0,.7);
+}
+@media (max-width: 600px){
+    #cartModal .modal-dialog{
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+}
+</style>
+
+
+<style id="stylish-cart-fix">
+/* Premium Add To Cart styling */
+#products .add-cart,
+.add-cart{
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 11px 18px !important;
+    border: 1px solid rgba(212,175,55,.55) !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg,#d4af37 0%,#f7e7a8 48%,#b8860b 100%) !important;
+    color: #111 !important;
+    box-shadow: 0 7px 20px rgba(212,175,55,.18);
+    font-weight: 800 !important;
+    letter-spacing: .7px;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease !important;
+}
+#products .add-cart::before,
+.add-cart::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:65%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+    transform:skewX(-20deg);
+    transition:left .55s ease;
+}
+#products .add-cart:hover,
+.add-cart:hover{
+    transform:translateY(-2px);
+    box-shadow:0 11px 28px rgba(212,175,55,.3);
+    filter:saturate(1.08);
+}
+#products .add-cart:hover::before,
+.add-cart:hover::before{left:140%;}
+#products .add-cart:active,
+.add-cart:active{transform:translateY(0) scale(.98);}
+#products .add-cart i,
+.add-cart i{font-size:.95rem;}
+</style>
+
+</head><body><header class="header">
+<a class="logo-text single-nav-link" href="#home">
+<i class="fa-solid fa-clock logo-icon"></i> ALBERTO<span>CLOCK</span>
+</a>
+<nav>
+<a class="active single-nav-link" href="#home">Home</a>
+<a class="single-nav-link" href="#products">Products</a>
+<a class="single-nav-link" href="#technology">Technology</a>
+<a class="single-nav-link" href="#stores">Store Locator</a>
+<a class="single-nav-link" href="#support">Support</a>
+<a class="single-nav-link" href="#about">About Us</a>
+<a class="single-nav-link" href="#contact">Contact Us</a>
+<a class="single-nav-link" href="#sitemap">Sitemap</a>
+</nav>
+<div class="nav-right">
+<button class="cart-btn" onclick="openCart()">
+<i class="fa-solid fa-cart-shopping"></i> <span id="cartCount">0</span>
+</button>
+<div class="visitor-counter">
+                VISITS: <span id="visitorCount">0</span>
+</div>
+</div>
+</header><section class="single-page-section" id="home"><div class="page-inner"><section class="hero">
+
+<div class="hero-content">
+<div class="hero-small">Alberto Timepieces Concierge</div>
+<h1>Timeless <span class="gold-text">Precision</span></h1>
+<p>Discover exceptional luxury timepieces crafted for every iconic moment. Designed with superior elegance, precision engineering, and heritage craftsmanship.</p>
+<a class="btn-gold" href="#collections">Explore Collection →</a>
+</div>
+<div aria-label="Alberto animated watch" class="hero-watch"><img alt="Alberto luxury watch" src="alberto_watch_clean.png"/><span aria-hidden="true" class="seconds-hand"></span><span aria-hidden="true" class="seconds-pivot"></span></div></section><section class="section" id="collections">
+<div class="section-title">
+<small>Signature Collections</small>
+<h2>Watch <span class="gold-text">Categories</span></h2>
+<p>Select your ultimate Alberto timepiece from our specialized horological series.</p>
+</div>
+<div class="category-grid">
+<div class="category-card" onclick="filterCategory('Vintage Collection')">
+<img alt="Vintage Collection" src="v1.jpg">
+<div class="category-overlay">
+<div class="category-number">01 — COLLECTION</div>
+<h3>Vintage Collection</h3>
+<p>Classic heritage designs with timeless retro appeal and historical authenticity.</p>
+<button class="category-btn">View Series →</button>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Luxury Timepieces')">
+<img alt="Luxury Timepieces" src="l3.jpg"/>
+<div class="category-overlay">
+<div class="category-number">02 — COLLECTION</div>
+<h3>Luxury Timepieces</h3>
+<p>Exclusive gold and mechanical masterpieces crafted in limited quantities.</p>
+<button class="category-btn">View Series →</button>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Smart Watches')">
+<img alt="Smart Watches" src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&amp;fit=crop&amp;w=900&amp;q=90"/>
+<div class="category-overlay">
+<div class="category-number">03 — COLLECTION</div>
+<h3>Smart Watches</h3>
+<p>Cutting-edge digital functionality coupled with high-end craftsmanship.</p>
+<button class="category-btn">View Series →</button>
+</div>
+</div>
+<div class="category-card" onclick="filterCategory('Designer Series')">
+<img alt="Designer Series" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&amp;fit=crop&amp;w=900&amp;q=90"/>
+<div class="category-overlay">
+<div class="category-number">04 — COLLECTION</div>
+<h3>Designer Series</h3>
+<p>Elegant designs studded with luxury accents for everyday poise.</p>
+<button class="category-btn">View Series →</button>
+</div>
+</div>
+</div>
+</section><section class="section" id="featured-products" style="background: rgba(0,0,0,0.2);">
+<div class="section-title">
+<small>Client Favorites</small>
+<h2>Featured <span class="gold-text">Timepieces</span></h2>
+<p>Explore our most coveted luxury models curated by master watchmakers.</p>
+</div>
+<div class="row g-4">
+<!-- Product 1 -->
+<div class="col-lg-3 col-md-6">
+<div class="product-card">
+<div class="product-img">
+<span class="sale-badge">BESTSELLER</span>
+<a href="#products"><img alt="Alberto London" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg"/></a>
+</div>
+<div class="product-info">
+<h3><a href="#products" style="color:#fff; text-decoration:none;">London Chrono</a></h3>
+<div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Stainless Steel Executive Dial</p>
+<div class="price">$120</div>
+<div class="product-actions">
+<button class="add-cart" onclick="addToCart('London Watch',120)">Add To Cart</button>
+<button class="heart"><i class="fa-regular fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="col-lg-3 col-md-6">
+<div class="product-card">
+<div class="product-img">
+<span class="sale-badge">NEW</span>
+<a href="#products"><img alt="Alberto Pearl" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&amp;fit=crop&amp;w=800&amp;q=90"/></a>
+</div>
+<div class="product-info">
+<h3><a href="#products" style="color:#fff; text-decoration:none;">Pearl Automatique</a></h3>
+<div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Mother of Pearl Elegance Series</p>
+<div class="price">$195</div>
+<div class="product-actions">
+<button class="add-cart" onclick="addToCart('Pearl Watch',195)">Add To Cart</button>
+<button class="heart"><i class="fa-regular fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="col-lg-3 col-md-6">
+<div class="product-card">
+<div class="product-img">
+<span class="sale-badge">SMART</span>
+<a href="#products"><img alt="Active Smart Watch" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3AISjXcIWefHSz7UbXW5LhOIWPTrkU8x963kePswX4g&s=10"/></a>
+</div>
+<div class="product-info">
+<h3><a href="#products" style="color:#fff; text-decoration:none;">Active Ultra Smart</a></h3>
+<div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Titanium Case Health Monitor</p>
+<div class="price">$180</div>
+<div class="product-actions">
+<button class="add-cart" onclick="addToCart('Active Ultra',180)">Add To Cart</button>
+<button class="heart"><i class="fa-regular fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="col-lg-3 col-md-6">
+<div class="product-card">
+<div class="product-img">
+<span class="sale-badge">LUXURY</span>
+<a href="#products"><img alt="Geneva Luxury Watch" src="e-project images/image1.jpg"/></a>
+</div>
+<div class="product-info">
+<h3><a href="#products" style="color:#fff; text-decoration:none;">Geneva Tourbillon</a></h3>
+<div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>18k Gold Plated Mechanical Edition</p>
+<div class="price">$890</div>
+<div class="product-actions">
+<button class="add-cart" onclick="addToCart('Geneva Luxury',890)">Add To Cart</button>
+<button class="heart"><i class="fa-regular fa-heart"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="section">
+<div class="section-title">
+<small>The Alberto Standards</small>
+<h2>Why Choose <span class="gold-text">Alberto?</span></h2>
+</div>
+<div class="row g-4">
+<div class="col-lg-3 col-md-6">
+<div class="why-box">
+<div class="why-icon"><i class="fa-solid fa-award"></i></div>
+<h3>Premium Quality</h3>
+<p>Meticulously sourced sapphire crystals, high-grade metals, and hand-finished dials.</p>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div class="why-box">
+<div class="why-icon"><i class="fa-solid fa-stopwatch"></i></div>
+<h3>Calibrated Accuracy</h3>
+<p>Rigorously calibrated movement engines built for long-term precision chronometry.</p>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div class="why-box">
+<div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<h3>5-Year Warranty</h3>
+<p>Comprehensive international coverage backing movement defects and seals.</p>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div class="why-box">
+<div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
+<h3>Concierge Shipping</h3>
+<p>Insured, complimentary world-class dispatch directly to your doorstep.</p>
+</div>
+</div>
+</div>
+</section><section class="section">
+<div class="store-box">
+<h2>Experience In <span class="gold-text">Person</span></h2>
+<p>Visit an official Alberto boutique to sample our mechanical masterpieces. Our concierge watchmakers are on hand to assist with personal styling and sizing.</p>
+<a class="btn-gold" href="#stores">Find Nearest Boutique →</a>
+</div>
+</section></div></section><div class="section-divider"></div><section class="single-page-section" id="products"><div class="page-inner"><section class="page-banner">
+<small>Exclusive Horology Catalog</small>
+<h1>Vintage, Luxury, Smart &amp; <span class="gold-text">Designer Collection</span></h1>
+</section><section class="filter-section">
+<div class="category-buttons">
+<button class="filter-btn active" onclick="filterProducts('all', this)">All Watches</button>
+<button class="filter-btn" onclick="filterProducts('vintage', this)">Vintage Collection</button>
+<button class="filter-btn" onclick="filterProducts('luxury', this)">Luxury Timepieces</button>
+<button class="filter-btn" onclick="filterProducts('smart', this)">Smart Watches</button>
+<button class="filter-btn" onclick="filterProducts('designer', this)">Designer Series</button>
+</div>
+<div class="search-box">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input id="searchInput" onkeyup="searchProducts()" placeholder="Search timepieces..." type="text"/>
+</div>
+</section><section class="products-container">
+<div class="row g-4" id="productsGrid">
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(1)">
+        <span class="badge-tag">CLASSIC CHRONO</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd4H9aiIvXZREp4LHogKYwqfArYmycTDeinkZSrC_W0Q&s=10" alt="Alberto Chrono-Legacy 1948">
+      </div>
+      <div class="product-info">
+        <div class="product-category">VINTAGE SERIES</div>
+        <h3>Alberto Chrono-Legacy 1948</h3>
+        <div class="stars">★★★★★</div>
+        <p>Aged brass housing paired with a hand-stitched tan leather strap and nostalgic 1940s tachymeter dial.</p>
+        <div class="price">$340</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Alberto Chrono-Legacy 1948',340)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(1)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(8)">
+        <span class="badge-tag">GRAND TOURBILLON</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTivlRbYkBvxkgQrE3FTttaAdKS1uuXgIneHTrs44K0lw&s=10" alt="Alberto Tourbillon Imperium">
+      </div>
+      <div class="product-info">
+        <div class="product-category">LUXURY SERIES</div>
+        <h3>Alberto Tourbillon Imperium</h3>
+        <div class="stars">★★★★★</div>
+        <p>18k gold electroplated open-heart cage displaying a rotating Swiss automatic tourbillon mechanism.</p>
+        <div class="price">$1,450</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Alberto Tourbillon Imperium',1450)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(8)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(15)">
+        <span class="badge-tag">TITANIUM &amp; ECG</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSllJbFG7VzgFXMkhL9iDS5qbdyhLeIGh_eTyDi_Oe1Mg&s=10" alt="Alberto Apex Titanium Smart X">
+      </div>
+      <div class="product-info">
+        <div class="product-category">SMART SERIES</div>
+        <h3>Alberto Apex Titanium Smart X</h3>
+        <div class="stars">★★★★★</div>
+        <p>Grade-5 Titanium body featuring an Ultra HD AMOLED touchscreen with advanced health sensors.</p>
+        <div class="price">$240</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Alberto Apex Titanium Smart X',240)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(15)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(21)">
+        <span class="badge-tag">LIMITED DESIGNER</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTsTGmgZ8lakWod0cLYBSAyprFOu0iI85MrqOKZiSUIA&s=10" alt="Alberto Atelier Vanguard">
+      </div>
+      <div class="product-info">
+        <div class="product-category">DESIGNER SERIES</div>
+        <h3>Alberto Atelier Vanguard</h3>
+        <div class="stars">★★★★★</div>
+        <p>Avant-garde asymmetric dial architecture with a handcrafted Swiss movement and Italian calfskin strap.</p>
+        <div class="price">$890</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Alberto Atelier Vanguard',890)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(21)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(4)">
+        <span class="badge-tag">RACEDAY EDITION</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEOY9vAJwrqUcy8CQchlXOnoCRJo4Ls9K7v6IXad9IsGsWp3F1tmJQ-lbV&s=10" alt="Silverstone Vintage Racer 67">
+      </div>
+      <div class="product-info">
+        <div class="product-category">VINTAGE SERIES</div>
+        <h3>Silverstone Vintage Racer '67</h3>
+        <div class="stars">★★★★★</div>
+        <p>Inspired by 1960s track racing chronographs with a perforated rally leather strap.</p>
+        <div class="price">$365</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Silverstone Vintage Racer 67',365)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(4)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(11)">
+        <span class="badge-tag">GENUINE DIAMONDS</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBoyi8ZDlLjDISUbOQlaVyFwNnMimiAyzSsIgg8TKYpQ&s=10" alt="Black Diamond Sovereign">
+      </div>
+      <div class="product-info">
+        <div class="product-category">LUXURY SERIES</div>
+        <h3>Black Diamond Sovereign</h3>
+        <div class="stars">★★★★★</div>
+        <p>Midnight black obsidian sunray dial with 12 solitaire diamonds at the hour positions.</p>
+        <div class="price">$1,950</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Black Diamond Sovereign',1950)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(11)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(19)">
+        <span class="badge-tag">CERAMIC BEZEL &amp; NFC</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRFE-otKUD9284Djgg6tyHM9af2coKYEupnMHyxZIiNw&s=10" alt="Alberto Matrix Cyber Watch V2">
+      </div>
+      <div class="product-info">
+        <div class="product-category">SMART SERIES</div>
+        <h3>Alberto Matrix Cyber Watch V2</h3>
+        <div class="stars">★★★★★</div>
+        <p>Scratch-resistant ceramic bezel with NFC payments, voice AI assistant and wireless charging.</p>
+        <div class="price">$360</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Alberto Matrix Cyber Watch V2',360)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(19)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="product-card">
+      <div class="product-img" onclick="quickView(24)">
+        <span class="badge-tag">CONCEPT DESIGN</span>
+        <img src="e-project images/final4.jpg" alt="Alberto Prism Chroma Art">
+      </div>
+      <div class="product-info">
+        <div class="product-category">DESIGNER SERIES</div>
+        <h3>Alberto Prism Chroma Art</h3>
+        <div class="stars">★★★★★</div>
+        <p>Iridescent sapphire crystal top coating creating dynamic spectrum reflections across a skeleton dial.</p>
+        <div class="price">$760</div>
+        <div class="product-actions">
+          <button class="add-cart" onclick="addToCart('Alberto Prism Chroma Art',760)">Add To Cart</button>
+          <button class="quick-view" onclick="quickView(24)"><i class="fa-regular fa-eye"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section></div></section><div class="section-divider"></div><section class="single-page-section" id="about"><div class="page-inner"><section class="hero">
+<div class="hero-content">
+<h1>Alberto <span class="gold-text">Watches</span></h1>
+<p>Crafting Timeless Elegance &amp; Precision</p>
+</div>
+</section><main class="container">
+<!-- Our Story Section -->
+<section class="story-section">
+<div class="story-text">
+<h2>Our <span class="gold-text">Legacy</span></h2>
+<p>Founded on an uncompromising passion for fine craftsmanship, <strong>Alberto Watches</strong> creates timepieces designed to elevate your everyday presence. We believe a watch is far more than a tool to measure time—it is an expression of character, sophistication, and individuality.</p>
+<p>Every timepiece in our collection represents a seamless fusion of traditional precision mechanics and clean, modern aesthetics. Built for those who value both elegance and reliability, Alberto Watches is designed to accompany you through every milestone.</p>
+</div>
+<div class="story-image-wrapper">
+<img alt="Alberto Luxury Watch" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="stats-section">
+<div class="stat-box">
+<h3 class="gold-text">100%</h3>
+<p>Premium Quality</p>
+</div>
+<div class="stat-box">
+<h3 class="gold-text">15k+</h3>
+<p>Happy Clients</p>
+</div>
+<div class="stat-box">
+<h3 class="gold-text">25+</h3>
+<p>Unique Designs</p>
+</div>
+<div class="stat-box">
+<h3 class="gold-text">2 Year</h3>
+<p>Warranty Included</p>
+</div>
+</section>
+<!-- Features Section -->
+<section class="features-section">
+<h2>The <span class="gold-text">Alberto Standard</span></h2>
+<div class="features-grid">
+<div class="feature-box">
+<div class="feature-icon">⚙️</div>
+<h3>Precision Movement</h3>
+<p>Engineered with Japanese &amp; Swiss movement mechanisms ensuring lifetime accuracy.</p>
+</div>
+<div class="feature-box">
+<div class="feature-icon">✨</div>
+<h3>Sapphire Crystal</h3>
+<p>Scratch-resistant glass coating designed to retain clarity through daily wear.</p>
+</div>
+<div class="feature-box">
+<div class="feature-icon">👑</div>
+<h3>Luxury Aesthetics</h3>
+<p>Thoughtfully proportioned, minimalist designs that suit both formal and casual attire.</p>
+</div>
+<div class="feature-box">
+<div class="feature-icon">🛡️</div>
+<h3>Water Resistance</h3>
+<p>Built using high-grade stainless steel with water resistance for long-term durability.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="last-btn">
+<h2>Find Your Signature Timepiece</h2>
+<p>Explore our exclusive range of crafted watches designed for distinction.</p>
+<a class="button" href="#home">Explore Collection</a>
+</section>
+</main></div></section><div class="section-divider"></div><section class="single-page-section" id="technology"><div class="page-inner"><section class="hero">
+<h1>Precision <span class="gold-text">Engineering</span> &amp; Innovation</h1>
+<p>Discover the advanced craftsmanship, Swiss-grade movements, and cutting-edge digital integration behind our timepieces.</p>
+</section><main>
+<h2 class="section-title">Core <span class="gold-text">Innovations</span></h2>
+<div class="grid">
+<div class="card">
+<div class="icon-box"><i class="fa-solid fa-gear"></i></div>
+<h3>Automatic Movement</h3>
+<p>Self-winding mechanical movements engineered with synthetic sapphire jewels for frictionless motion and lifetime accuracy.</p>
+</div>
+<div class="card">
+<div class="icon-box"><i class="fa-solid fa-gem"></i></div>
+<h3>Sapphire Crystal Glass</h3>
+<p>Ultra-durable, scratch-resistant synthetic crystal casing treated with double anti-reflective coating for crystal readability.</p>
+</div>
+<div class="card">
+<div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+<h3>Smart Sensor Suite</h3>
+<p>Advanced optical bio-sensors providing real-time heart rate monitoring, SpO2 telemetry, and precise GPS tracking.</p>
+</div>
+<div class="card">
+<div class="icon-box"><i class="fa-solid fa-water"></i></div>
+<h3>50M Water Resistance</h3>
+<p>Precision-sealed gaskets combined with screw-down crown systems engineered to withstand water pressures up to 5 ATM.</p>
+</div>
+<div class="card">
+<div class="icon-box"><i class="fa-solid fa-solar-panel"></i></div>
+<h3>Solar Dynamic Charging</h3>
+<p>High-efficiency photovoltaics convert both natural sunlight and indoor light sources into continuous operational power.</p>
+</div>
+<div class="card">
+<div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+<h3>Aerospace Titanium</h3>
+<p>Forged with Grade 5 Titanium alloys to offer maximum strength-to-weight performance and hypoallergenic durability.</p>
+</div>
+</div>
+</main><section class="spec-section">
+<h2 class="section-title">Technical <span class="gold-text">Specifications</span></h2>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Watch Series</th>
+<th>Movement Type</th>
+<th>Glass Material</th>
+<th>Water Resistance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Luxury Series</strong></td>
+<td>Automatic Tourbillon</td>
+<td>Sapphire Crystal</td>
+<td>50 Meters (5 ATM)</td>
+</tr>
+<tr>
+<td><strong>Vintage Collection</strong></td>
+<td>Mechanical Hand-Wind</td>
+<td>Mineral Glass</td>
+<td>30 Meters (3 ATM)</td>
+</tr>
+<tr>
+<td><strong>Smart Pro Series</strong></td>
+<td>Digital / Optical Sensors</td>
+<td>Gorilla Glass 3D</td>
+<td>50 Meters (5 ATM)</td>
+</tr>
+<tr>
+<td><strong>Mens Classic</strong></td>
+<td>Precision Quartz</td>
+<td>Hardlex Crystal</td>
+<td>30 Meters (3 ATM)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section></div></section><div class="section-divider"></div><section class="single-page-section" id="support"><div class="page-inner"><section class="hero">
+<h1>How Can We <span class="gold-text">Assist You?</span></h1>
+<p>Our client concierges and technical watchmakers are available to assist with warranty, maintenance, and product inquiries.</p>
+</section><main>
+<!-- Quick Support Channels -->
+<div class="grid-cards">
+<div class="support-card">
+<div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+<h3>Warranty &amp; Service</h3>
+<p>Register your timepiece or check ongoing repair status.</p>
+<a href="#support-form">Submit Request →</a>
+</div>
+<div class="support-card">
+<div class="icon-box"><i class="fa-solid fa-truck"></i></div>
+<h3>Shipping &amp; Returns</h3>
+<p>Track your order or view our complimentary return policy.</p>
+<a href="#faq">Learn More →</a>
+</div>
+<div class="support-card">
+<div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+<h3>User Manuals</h3>
+<p>Download setting guides and calibration details for your model.</p>
+<a href="#technology">View Specifications →</a>
+</div>
+<div class="support-card">
+<div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+<h3>Concierge Service</h3>
+<p>Speak directly with our client care team worldwide.</p>
+<a href="tel:+15550192834">+1 (555) 019-2834 →</a>
+</div>
+</div>
+<!-- FAQ Section -->
+<h2 class="section-title">Frequently Asked <span class="gold-text">Questions</span></h2>
+<div class="faq-container" id="faq">
+<div class="faq-item">
+<div class="faq-question">How do I register my watch warranty? <i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer">You can register your watch by filling out the online support ticket below with your serial number, found on the case back of your timepiece.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">How often should my timepiece be serviced? <i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer">We recommend a full overhaul every 3 to 5 years for mechanical watches to preserve mechanical accuracy and water resistance sealings.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question">What is covered under the international warranty? <i class="fa-solid fa-chevron-down"></i></div>
+<div class="faq-answer">Our 5-Year Limited Warranty covers manufacturing defects and internal movement components under standard operating conditions.</div>
+</div>
+</div>
+<!-- Support Ticket Form -->
+<section class="form-section" id="support-form">
+<h2>Create A Support <span class="gold-text">Ticket</span></h2>
+<p>Fill out the form below and our concierge team will respond within 24 hours.</p>
+<form>
+<div class="form-grid">
+<div class="form-group">
+<label>Full Name</label>
+<input placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>Email Address</label>
+<input placeholder="john@example.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label>Watch Model / Serial No.</label>
+<input placeholder="e.g. ALT-2026-X" type="text"/>
+</div>
+<div class="form-group">
+<label>Inquiry Type</label>
+<select required="">
+<option disabled="" selected="" value="">Select Category</option>
+<option value="warranty">Warranty &amp; Repairs</option>
+<option value="order">Order Status</option>
+<option value="technical">Technical Support</option>
+<option value="other">General Inquiry</option>
+</select>
+</div>
+<div class="form-group full">
+<label>Message / Description</label>
+<textarea placeholder="Describe your issue or question in detail..." required="" rows="5"></textarea>
+</div>
+<button class="btn-submit" type="submit">Submit Support Ticket</button>
+</div>
+</form>
+</section>
+</main></div></section><div class="section-divider"></div><section class="single-page-section" id="stores"><div class="page-inner"><section class="search-container">
+<h1>Find a <span class="gold-text">Boutique</span> Near You</h1>
+<p>Explore authorized dealers, exclusive flagships, and certified service hubs.</p>
+<div class="search-box">
+<input placeholder="Enter City, Zip Code or Country..." type="text"/>
+<button type="button"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+</div>
+</section><main class="locator-layout">
+<!-- Store Cards Container -->
+<div class="store-list">
+<div class="store-card">
+<h3>Grand Flagship Boutique</h3>
+<div class="store-info">
+<i class="fa-solid fa-location-dot"></i>
+<span>123 Luxury Avenue, Fashion District, NY 10001</span>
+</div>
+<div class="store-info">
+<i class="fa-solid fa-phone"></i>
+<span>+1 (555) 019-2834</span>
+</div>
+<div class="store-info">
+<i class="fa-solid fa-clock"></i>
+<span>Mon - Sat: 10:00 AM - 8:00 PM</span>
+</div>
+<span class="store-status status-open">Open Now</span>
+<div class="store-actions">
+<a class="btn-dir" href="https://maps.google.com" target="_blank">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="store-card">
+<h3>Downtown Heritage Center</h3>
+<div class="store-info">
+<i class="fa-solid fa-location-dot"></i>
+<span>456 Clockwork Square, Downtown, NY 10005</span>
+</div>
+<div class="store-info">
+<i class="fa-solid fa-phone"></i>
+<span>+1 (555) 014-9921</span>
+</div>
+<div class="store-info">
+<i class="fa-solid fa-clock"></i>
+<span>Mon - Sun: 11:00 AM - 7:00 PM</span>
+</div>
+<span class="store-status status-open">Open Now</span>
+<div class="store-actions">
+<a class="btn-dir" href="https://maps.google.com" target="_blank">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="store-card">
+<h3>Official Repair &amp; Service Hub</h3>
+<div class="store-info">
+<i class="fa-solid fa-location-dot"></i>
+<span>789 Precision Way, Tech Park, NY 10012</span>
+</div>
+<div class="store-info">
+<i class="fa-solid fa-phone"></i>
+<span>+1 (555) 018-3344</span>
+</div>
+<div class="store-info">
+<i class="fa-solid fa-clock"></i>
+<span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+</div>
+<span class="store-status status-open">Open Now</span>
+<div class="store-actions">
+<a class="btn-dir" href="https://maps.google.com" target="_blank">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+<!-- Google Map Integration Box -->
+<div class="map-box">
+<iframe allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.216262706312!2d-73.98657868459365!3d40.75797477932688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s">
+</iframe>
+</div>
+</main></div></section><div class="section-divider"></div><section class="single-page-section" id="contact"><div class="page-inner"><section class="hero-section">
+<h1>Let's Connect</h1>
+<p>Have questions regarding Alberto Watch collections? We are always here to assist you.</p>
+</section><main class="contact-container">
+<!-- Info Panel -->
+<div class="info-panel">
+<div class="info-card">
+<div class="icon-wrapper"><i class="fa-solid fa-envelope"></i></div>
+<div class="info-details">
+<h4>Direct Email</h4>
+<p>support@albertowatch.com</p>
+</div>
+</div>
+<div class="info-card">
+<div class="icon-wrapper"><i class="fa-solid fa-phone"></i></div>
+<div class="info-details">
+<h4>VIP Support Line</h4>
+<p>+1 (800) 555-0199</p>
+</div>
+</div>
+<div class="info-card">
+<div class="icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
+<div class="info-details">
+<h4>Showroom Location</h4>
+<p>5th Avenue, New York, NY</p>
+</div>
+</div>
+<div class="info-card">
+<div class="icon-wrapper"><i class="fa-solid fa-clock"></i></div>
+<div class="info-details">
+<h4>Working Hours</h4>
+<p>Mon - Sat: 10 AM - 8 PM</p>
+</div>
+</div>
+</div>
+<!-- Form Panel -->
+<div class="form-card">
+<h2>Send Us a Message</h2>
+<form class="form-grid" onsubmit="handleSubmit(event)">
+<div class="input-group">
+<label>Full Name</label>
+<input id="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="input-group">
+<label>Email Address</label>
+<input id="email" placeholder="john@example.com" required="" type="email"/>
+</div>
+<div class="input-group field-full">
+<label>Subject</label>
+<select id="subject" required="">
+<option disabled="" selected="" value="">Select an option</option>
+<option value="Product Query">Product Query</option>
+<option value="Order Inquiry">Order Inquiry</option>
+<option value="Private Appointment">Private Appointment</option>
+</select>
+</div>
+<div class="input-group field-full">
+<label>Your Message</label>
+<textarea id="message" placeholder="How can we help you?" required="" rows="4"></textarea>
+</div>
+<button class="submit-btn" type="submit">
+<span>Submit Request</span>
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+</form>
+</div>
+</main></div></section><div class="modal fade" id="cartModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Shopping <span class="gold-text">Cart</span></h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<div class="cart-list" id="cartItems">Your cart is empty.</div>
+</div>
+<div class="modal-footer">
+<div>
+<span style="font-size: 0.9rem; color: var(--text-muted);">Total Amount:</span>
+<strong style="font-size: 1.2rem; color: #fff; margin-left: 5px;">$<span id="cartTotal">0</span></strong>
+</div>
+<button class="btn-gold" onclick="checkout()" style="padding: 10px 20px;">Proceed to Checkout</button>
+</div>
+</div>
+</div>
+</div><div class="modal fade" id="orderModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content order-modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Order <span class="gold-text">Confirmation</span></h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<form id="orderForm" onsubmit="submitOrder(event)">
+<div class="modal-body order-form-body">
+<p class="order-subtitle">Please enter your details to confirm your watch order.</p>
+<div class="order-grid">
+<div class="order-field"><label for="orderName">Full Name</label><input id="orderName" type="text" placeholder="Your full name" required></div>
+<div class="order-field"><label for="orderPhone">Phone Number</label><input id="orderPhone" type="tel" placeholder="03XX XXXXXXX" required></div>
+<div class="order-field"><label for="orderEmail">Email Address</label><input id="orderEmail" type="email" placeholder="you@example.com" required></div>
+<div class="order-field"><label for="orderCity">City</label><input id="orderCity" type="text" placeholder="Karachi" required></div>
+<div class="order-field field-full"><label for="orderAddress">Delivery Address</label><textarea id="orderAddress" rows="3" placeholder="House, street, area" required></textarea></div>
+<div class="order-field field-full"><label for="orderPayment">Payment Method</label><select id="orderPayment" required><option value="" selected disabled>Select payment method</option><option>Cash on Delivery</option><option>Bank Transfer</option></select></div>
+</div>
+<div class="order-summary" id="orderSummary"></div>
+</div>
+<div class="modal-footer"><button type="button" class="btn-gold order-cancel" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn-gold"><i class="fa-solid fa-check"></i> Confirm Order</button></div>
+</form>
+</div></div></div>
+<div class="modal fade" id="productModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="modalTitle">Watch Details</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body row g-4" id="modalBody">
+<!-- Dynamic Details -->
+</div>
+</div>
+</div>
+</div>
+<section class="single-page-section" id="sitemap">
+  <div class="sitemap-wrap">
+    <div class="section-title">
+      <small>Website Navigation</small>
+      <h2>Alberto <span class="gold-text">Sitemap</span></h2>
+      <p>Quick access to every important section of the Alberto Watch website.</p>
+    </div>
+    <div class="sitemap-grid">
+      <div class="sitemap-card">
+        <h3><i class="fa-solid fa-house"></i> Main</h3>
+        <ul class="sitemap-links">
+          <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="#collections"><i class="fa-solid fa-angle-right"></i> Watch Categories</a></li>
+          <li><a href="#featured-products"><i class="fa-solid fa-angle-right"></i> Featured Products</a></li>
+          <li><a href="#about"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-card">
+        <h3><i class="fa-solid fa-watch-smart"></i> Shopping</h3>
+        <ul class="sitemap-links">
+          <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Product Catalog</a></li>
+          <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Vintage Collection</a></li>
+          <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Luxury Timepieces</a></li>
+          <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Smart Watches</a></li>
+          <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Grand Complications</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-card">
+        <h3><i class="fa-solid fa-gears"></i> Services</h3>
+        <ul class="sitemap-links">
+          <li><a href="#technology"><i class="fa-solid fa-angle-right"></i> Technology</a></li>
+          <li><a href="#stores"><i class="fa-solid fa-angle-right"></i> Store Locator</a></li>
+          <li><a href="#support"><i class="fa-solid fa-angle-right"></i> Customer Support</a></li>
+          <li><a href="#support"><i class="fa-solid fa-angle-right"></i> Service &amp; FAQ</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-card">
+        <h3><i class="fa-solid fa-circle-info"></i> Quick Links</h3>
+        <ul class="sitemap-links">
+          <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Explore Collection</a></li>
+          <li><a href="#products"><i class="fa-solid fa-angle-right"></i> Shop All Watches</a></li>
+          <li><a href="#stores"><i class="fa-solid fa-angle-right"></i> Find a Store</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-angle-right"></i> Send a Message</a></li>
+          <li><a href="#sitemap"><i class="fa-solid fa-angle-right"></i> Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sitemap-bottom">Need help finding something? <a href="#support">Visit Support</a> or <a href="#contact">Contact Alberto Watch</a>.</div>
+  </div>
+</section>
+<footer>
+<div class="row g-5">
+<div class="col-lg-5">
+<div class="footer-logo">ALBERTO <span>WATCH</span></div>
+<p class="footer-about">Timeless wristwatches designed with uncompromising precision, luxury aesthetics, and century-old horological traditions.</p>
+<div class="social">
+<a href="#home"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#home"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="#home"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="#home"><i class="fa-brands fa-instagram"></i></a>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="footer-title">Collections</div>
+<ul class="footer-links">
+<li><a href="#products">Vintage Collection</a></li>
+<li><a href="#products">Luxury Timepieces</a></li>
+<li><a href="#products">Smart Watches</a></li>
+<li><a href="#products">Grand Complications</a></li>
+</ul>
+</div>
+<div class="col-lg-4">
+<div class="footer-title">Client Concierge</div>
+<ul class="footer-links">
+<li><a href="#home">Home Page</a></li>
+<li><a href="#products">Product Catalog</a></li>
+<li><a href="#stores">Store Locator</a></li>
+<li><a href="#support">Customer Support &amp; Service</a></li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+            © 2026 Alberto Watch Brand. All rights reserved.
+        </div>
+</footer>
+<style id="order-confirmation-styles">
+.order-modal-content{background:#0b0f19!important;border:1px solid rgba(212,175,55,.4)!important;border-radius:16px!important;color:#fff}
+.order-form-body{padding:24px}.order-subtitle{color:#9ca3af;font-size:.9rem;margin-bottom:20px}.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.order-field{display:flex;flex-direction:column;gap:7px}.order-field.field-full{grid-column:1/-1}.order-field label{font-size:.78rem;font-weight:700;color:#d4af37;text-transform:uppercase;letter-spacing:.7px}.order-field input,.order-field textarea,.order-field select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 12px;color:#fff;outline:none}.order-field select option{background:#111;color:#fff}.order-field input:focus,.order-field textarea:focus,.order-field select:focus{border-color:#d4af37;box-shadow:0 0 0 3px rgba(212,175,55,.08)}.order-summary{margin-top:20px;padding:14px;border:1px solid rgba(212,175,55,.2);border-radius:10px;background:rgba(212,175,55,.06);font-size:.85rem;color:#ccc}.order-summary strong{color:#fff}.order-cancel{background:transparent!important;color:#d4af37!important;border:1px solid rgba(212,175,55,.4)!important}.order-modal-content .modal-footer{gap:10px}
+@media(max-width:600px){.order-grid{grid-template-columns:1fr}.order-field.field-full{grid-column:auto}}
+</style>
+<script>
+        /* ================= VISITOR COUNTER ================= */
+        let visitors = localStorage.getItem("albertoVisitors");
+        if (!visitors) {
+            visitors = 1;
+        } else {
+            visitors = Number(visitors) + 1;
+        }
+        localStorage.setItem("albertoVisitors", visitors);
+        document.getElementById("visitorCount").textContent = visitors;
+
+        /* ================= CART FUNCTIONALITY ================= */
+        let cart = JSON.parse(localStorage.getItem("albertoCart")) || [];
+
+        function updateCart() {
+            const totalItems = cart.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0);
+            const countEl = document.getElementById("cartCount");
+            if (countEl) countEl.textContent = totalItems;
+
+            let html = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                html = `
+                    <div class="cart-empty">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div>Your concierge cart is empty.</div>
+                        <small>Add a watch from the Products section.</small>
+                    </div>`;
+            } else {
+                cart.forEach(function(item, index) {
+                    const qty = Number(item.quantity) || 1;
+                    const price = Number(item.price) || 0;
+                    const lineTotal = price * qty;
+                    total += lineTotal;
+
+                    html += `
+                        <div class="cart-item">
+                            <div class="cart-item-info">
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-price">$${price.toFixed(2)} each</div>
+                                <div class="cart-item-total">$${lineTotal.toFixed(2)}</div>
+                            </div>
+
+                            <div class="qty-control" aria-label="Quantity controls">
+                                <button class="qty-btn qty-minus"
+                                    onclick="changeQuantity(${index}, -1)"
+                                    aria-label="Decrease quantity">−</button>
+                                <span class="qty-number">${qty}</span>
+                                <button class="qty-btn qty-plus"
+                                    onclick="changeQuantity(${index}, 1)"
+                                    aria-label="Increase quantity">+</button>
+                            </div>
+
+                            <button class="remove-btn"
+                                onclick="removeCart(${index})"
+                                aria-label="Remove item"
+                                title="Remove item">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>`;
+                });
+            }
+
+            document.getElementById("cartItems").innerHTML = html;
+            document.getElementById("cartTotal").textContent = total.toFixed(2);
+            localStorage.setItem("albertoCart", JSON.stringify(cart));
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name && Number(item.price) === Number(price));
+
+            if (existing) {
+                existing.quantity = (Number(existing.quantity) || 1) + 1;
+            } else {
+                cart.push({ name: name, price: Number(price), quantity: 1 });
+            }
+
+            updateCart();
+            showCartToast(name + " added to cart");
+        }
+
+        function showCartToast(message) {
+            const toast = document.getElementById("cartToast");
+            const text = document.getElementById("cartToastText");
+            if (!toast || !text) return;
+            text.textContent = message;
+            toast.classList.add("show");
+            clearTimeout(window.__cartToastTimer);
+            window.__cartToastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
+        }
+
+        function changeQuantity(index, amount) {
+            if (!cart[index]) return;
+            cart[index].quantity = (Number(cart[index].quantity) || 1) + amount;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+
+        function removeCart(index) {
+            if (!cart[index]) return;
+            const removedName = cart[index].name;
+            cart.splice(index, 1);
+            updateCart();
+            showCartToast(removedName + " removed");
+        }
+
+        function openCart() {
+            updateCart();
+            const modal = new bootstrap.Modal(document.getElementById("cartModal"));
+            modal.show();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+            const summary = document.getElementById("orderSummary");
+            const items = cart.map(item => `<div><strong>${item.name}</strong> × ${Number(item.quantity) || 1}</div>`).join("");
+            const total = cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.quantity) || 1), 0);
+            summary.innerHTML = `<div style="margin-bottom:8px;font-weight:700;color:#d4af37">Order Summary</div>${items}<div style="margin-top:10px;font-size:1rem"><strong>Total: $${total.toFixed(2)}</strong></div>`;
+            bootstrap.Modal.getInstance(document.getElementById("cartModal"))?.hide();
+            setTimeout(() => new bootstrap.Modal(document.getElementById("orderModal")).show(), 250);
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            if (cart.length === 0) return;
+            const orderNo = "ALB-" + Math.floor(100000 + Math.random() * 900000);
+            const name = document.getElementById("orderName").value.trim();
+            alert(`Order ${orderNo} confirmed! Thank you, ${name}. Our concierge team will contact you for delivery confirmation.`);
+            cart = [];
+            updateCart();
+            bootstrap.Modal.getInstance(document.getElementById("orderModal"))?.hide();
+            document.getElementById("orderForm").reset();
+        }
+
+        /* ================= CATEGORY FILTER ================= */
+        function filterCategory(category) {
+            const map = {
+                "Vintage Collection": "vintage",
+                "Luxury Timepieces": "luxury",
+                "Smart Watches": "smart",
+                "Designer Series": "designer"
+            };
+            const key = map[category] || "all";
+            const buttons = document.querySelectorAll("#products .filter-btn");
+            const buttonIndex = { all: 0, vintage: 1, luxury: 2, smart: 3, designer: 4 }[key] ?? 0;
+            const button = buttons[buttonIndex];
+            if (typeof filterProducts === "function") {
+                filterProducts(key, button);
+            }
+            document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        /* ================= LIVE TICKER ================= */
+        function updateTicker() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+
+            document.getElementById("tickerText").textContent =
+                "ALBERTO WATCHES • TIMELESS PRECISION • CURRENT DATE: " + date + " • CURRENT TIME: " + time + " • EXECUTIVE HOROLOGY • ";
+        }
+
+        updateTicker();
+        setInterval(updateTicker, 1000);
+
+        /* ================= INITIALIZE ================= */
+        updateCart();
+    
+
+
+        const products = [
+            // VINTAGE COLLECTION (7 items)
+            { 
+                id: 1, 
+                name: "Alberto Chrono-Legacy 1948", 
+                category: "vintage", 
+                price: 340, 
+                badge: "CLASSIC CHRONO", 
+                img: "/s1.jpg", 
+                desc: "Aged brass housing paired with a hand-stitched tan leather strap and nostalgic 1940s tachymeter dial." 
+            },
+            { 
+                id: 2, 
+                name: "Royal Heritage Pocket Wrist 1935", 
+                category: "vintage", 
+                price: 420, 
+                badge: "RARE POCKET-ADAPTED", 
+                img: "/s2.jpg", 
+                desc: "Re-engineered vintage pocket watch movement enclosed in a modern wrist casing with classic Roman numerals." 
+            },
+            { 
+                id: 3, 
+                name: "Alberto Old-Gatsby Tonneau", 
+                category: "vintage", 
+                price: 290, 
+                badge: "1920s BARREL SHAPE", 
+                img: "/s3.jpg", 
+                desc: "Curved barrel-shaped antique casing featuring golden patina hands and a guilloché inner dial." 
+            },
+            { 
+                id: 4, 
+                name: "Silverstone Vintage Racer '67", 
+                category: "vintage", 
+                price: 365, 
+                badge: "RACEDAY EDITION", 
+                img: "/s4.jpg", 
+                desc: "Inspired by 1960s track racing chronographs, with a perforated rally leather strap and dual sub-dials." 
+            },
+            { 
+                id: 5, 
+                name: "Alberto Masterpiece Art-Deco", 
+                category: "vintage", 
+                price: 510, 
+                badge: "ART-DECO PATTERN", 
+                img: "/l1.jpg", 
+                desc: "Symmetrical geometric Art-Deco dial with gilded leaf hands and a vintage polished steel bezel." 
+            },
+            { 
+                id: 6, 
+                name: "Luftwaffe Pilot Legend 1941", 
+                category: "vintage", 
+                price: 330, 
+                badge: "MILITARY AVIATOR", 
+                img: "/l2.jpg", 
+                desc: "High-contrast matte black dial engineered with patinated luminescent indices for high visibility." 
+            },
+            { 
+                id: 7, 
+                name: "Nostalgic Aureus Mesh 1982", 
+                category: "vintage", 
+                price: 275, 
+                badge: "GOLD MESH RETRO", 
+                img: "/l3.jpg", 
+                desc: "Slim-profile retro gold-tone casing connected to a lightweight woven stainless steel mesh bracelet." 
+            },
+
+            // LUXURY COLLECTION (7 items)
+            { 
+                id: 8, 
+                name: "Alberto Tourbillon Imperium", 
+                category: "luxury", 
+                price: 1450, 
+                badge: "GRAND TOURBILLON", 
+                img: "/l4.jpg", 
+                desc: "18k gold electroplated open-heart cage displaying a rotating Swiss automatic tourbillon mechanism." 
+            },
+            { 
+                id: 9, 
+                name: "Grand Skeleton Majesty Gold", 
+                category: "luxury", 
+                price: 1100, 
+                badge: "EXPOSED SKELETON", 
+                img: "/v1.jpg", 
+                desc: "Fully transparent mechanical engine shielded by scratch-proof sapphire crystal on both front and back." 
+            },
+            { 
+                id: 10, 
+                name: "Royal Astronomical Moonphase", 
+                category: "luxury", 
+                price: 1580, 
+                badge: "CELESTIAL CALENDAR", 
+                img: "/v2.jpg", 
+                desc: "Solid gold bezel featuring a precision astronomical moonphase window and full perpetual calendar function." 
+            },
+            { 
+                id: 11, 
+                name: "Black Diamond Sovereign", 
+                category: "luxury", 
+                price: 1950, 
+                badge: "GENUINE DIAMONDS", 
+                img: "/v3.jpg", 
+                desc: "Midnight black obsidian sunray dial studded with 12 ethically sourced solitaire diamonds at hour positions." 
+            },
+            { 
+                id: 12, 
+                name: "Opulent Skeleton II Chrono", 
+                category: "luxury", 
+                price: 1720, 
+                badge: "HAND-ENGRAVED GEARS", 
+                img: "/v4.jpg", 
+                desc: "Exquisite hand-engraved platinum internal bridges visible through an exhibition case-back." 
+            },
+            { 
+                id: 13, 
+                name: "Rose Gold Executive Chrono", 
+                category: "luxury", 
+                price: 1280, 
+                badge: "ROSE GOLD PVD", 
+                img: "/w1.jpg", 
+                desc: "Brushed rose gold PVD case paired with a genuine brown alligator-grain leather strap and deployment clasp." 
+            },
+            { 
+                id: 14, 
+                name: "Oceanic Sapphire Chronometer", 
+                category: "luxury", 
+                price: 1390, 
+                badge: "COSC CERTIFIED", 
+                img: "/w2.jpg", 
+                desc: "Officially certified Swiss chronometer with a deep oceanic blue sunray dial and 300m water resistance." 
+            },
+
+            // SMART COLLECTION (6 items)
+            { 
+                id: 15, 
+                name: "Alberto Apex Titanium Smart X", 
+                category: "smart", 
+                price: 240, 
+                badge: "TITANIUM & ECG", 
+                img: "/w3.jpg", 
+                desc: "Grade-5 Titanium body featuring an Ultra HD AMOLED touchscreen with continuous ECG, Heart Rate & SpO2 sensors." 
+            },
+            { 
+                id: 16, 
+                name: "Alberto Hybrid Connect Pro", 
+                category: "smart", 
+                price: 310, 
+                badge: "HYBRID DUAL-DISPLAY", 
+                img: "/w4.jpg", 
+                desc: "Physical mechanical clock hands layered over a hidden OLED digital touchscreen beneath curved sapphire glass." 
+            },
+            { 
+                id: 17, 
+                name: "CyberTech Sync Series 9", 
+                category: "smart", 
+                price: 270, 
+                badge: "DUAL GPS & 14-DAY BATTERY", 
+                img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=90", 
+                desc: "Precision dual-frequency satellite GPS, 50-meter water resistance rating, and an extended 14-day battery life." 
+            },
+            { 
+                id: 18, 
+                name: "Platinum Fit Tracker Pro", 
+                category: "smart", 
+                price: 195, 
+                badge: "HEALTH SUITE PRO", 
+                img: "https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=800&q=90", 
+                desc: "Aerospace aluminum alloy body offering advanced REM sleep tracking, stress level analysis, and workout coaching." 
+            },
+            { 
+                id: 19, 
+                name: "Alberto Matrix Cyber Watch V2", 
+                category: "smart", 
+                price: 360, 
+                badge: "CERAMIC BEZEL & NFC", 
+                img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=90", 
+                desc: "Scratch-resistant ceramic bezel with contactless NFC payment chip, built-in voice AI assistant, and wireless charging." 
+            },
+            { 
+                id: 20, 
+                name: "Horizon LTE Cellular Ultra", 
+                category: "smart", 
+                price: 325, 
+                badge: "STANDALONE eSIM", 
+                img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=90", 
+                desc: "Embedded eSIM cellular connectivity allowing independent voice calls, messaging, and music streaming without a smartphone." 
+            },
+
+            // DESIGNER SERIES (4 items)
+            { 
+                id: 21, 
+                name: "Alberto Atelier Vanguard", 
+                category: "designer", 
+                price: 890, 
+                badge: "LIMITED DESIGNER", 
+                img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=90", 
+                desc: "Avant-garde asymmetric dial architecture housing handcrafted Swiss movement and a bespoke Italian calfskin strap." 
+            },
+            { 
+                id: 22, 
+                name: "Monochrome Haute Horlogerie", 
+                category: "designer", 
+                price: 980, 
+                badge: "EXCLUSIVE EDITION", 
+                img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=90", 
+                desc: "Minimalist matte-black ceramic construction accented by brushed gold geometric hands and a hidden crown feature." 
+            },
+            { 
+                id: 23, 
+                name: "Starlight Celestial Eclipse", 
+                category: "designer", 
+                price: 1150, 
+                badge: "AVANT-GARDE", 
+                img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=90", 
+                desc: "Aventurine glass dial depicting a starry night sky surrounded by a sculpted polished titanium case." 
+            },
+            { 
+                id: 24, 
+                name: "Alberto Prism Chroma Art", 
+                category: "designer", 
+                price: 760, 
+                badge: "CONCEPT DESIGN", 
+                img: "e-project images/final3.jpg", 
+                desc: "Iridescent sapphire crystal top coating creating dynamic spectrum reflections across a skeleton dial base." 
+            }
+        ];
+
+        let currentFilter = 'all';
+        // Display Products
+        function renderProducts(items) {
+            const grid = document.getElementById("productsGrid");
+            if(items.length === 0) {
+                grid.innerHTML = `<div class="text-center py-5" style="color: var(--text-muted);">No timepieces found matching your criteria.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(p => `
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img" onclick="quickView(${p.id})">
+                            <span class="badge-tag">${p.badge}</span>
+                            <img src="${p.img}" alt="${p.name}">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${p.category.toUpperCase()} SERIES</div>
+                            <h3>${p.name}</h3>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p>${p.desc}</p>
+                            <div class="price">$${p.price}</div>
+                            <div class="product-actions">
+                                <button class="add-cart" onclick="addToCart('${p.name}', ${p.price})"><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></button>
+                                <button class="quick-view" onclick="quickView(${p.id})"><i class="fa-regular fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Products
+        function filterProducts(cat, btn) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
+            renderProducts(filtered);
+        }
+
+        // Search Products
+        function searchProducts() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const filtered = products.filter(p => 
+                (currentFilter === 'all' || p.category === currentFilter) &&
+                (p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query))
+            );
+            renderProducts(filtered);
+        }
+
+        // Quick View Modal
+        function quickView(id) {
+            const p = products.find(prod => prod.id === id);
+            document.getElementById("modalTitle").textContent = p.name;
+            document.getElementById("modalBody").innerHTML = `
+                <div class="col-md-6">
+                    <img src="${p.img}" class="img-fluid rounded" alt="${p.name}">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <span class="product-category">${p.category.toUpperCase()} COLLECTION</span>
+                    <h2 class="mt-2" style="font-family:'Playfair Display', serif">${p.name}</h2>
+                    <h3 class="gold-text my-3">$${p.price}</h3>
+                    <p style="color:var(--text-muted);">${p.desc}</p>
+                    <button class="btn-gold mt-3" onclick="addToCart('${p.name}', ${p.price})">Add To Cart &rarr;</button>
+                </div>
+            `;
+            new bootstrap.Modal(document.getElementById("productModal")).show();
+        }
+
+        // Cart Logic
+        function updateTicker() {
+            const now = new Date();
+            document.getElementById("tickerText").textContent =
+                "ALBERTO WATCHES • TIMELESS PRECISION • CURRENT DATE: " + now.toLocaleDateString() + " • TIME: " + now.toLocaleTimeString() + " • ";
+        }
+        setInterval(updateTicker, 1000);
+        updateTicker();
+
+        // Initial Load
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catParam = urlParams.get('category');
+            if(catParam) {
+                const lowerCat = catParam.toLowerCase();
+                if(lowerCat.includes('vintage')) filterProducts('vintage', document.querySelectorAll('.filter-btn')[1]);
+                else if(lowerCat.includes('luxury')) filterProducts('luxury', document.querySelectorAll('.filter-btn')[2]);
+                else if(lowerCat.includes('smart')) filterProducts('smart', document.querySelectorAll('.filter-btn')[3]);
+                else if(lowerCat.includes('designer')) filterProducts('designer', document.querySelectorAll('.filter-btn')[4]);
+            } else {
+                renderProducts(products);
+            }
+            updateCart();
+        };
+    
+
+// Ensure product catalog is rendered in the single-page products section.
+if (typeof renderProducts === "function") renderProducts(products);
+</script><script>
+(function(){const links=[...document.querySelectorAll('.header nav a[href^="#"]')]; const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean); const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-30% 0px -55% 0px',threshold:0}); sections.forEach(s=>io.observe(s));})();
+</script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<div id="cartToast" class="cart-toast"><i class="fa-solid fa-circle-check"></i><span id="cartToastText">Added to cart</span></div>
+</body></html>

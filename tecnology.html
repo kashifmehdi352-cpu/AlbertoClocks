@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology & Innovation | Alberto Watch</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Luxury Dark Theme */
+        :root {
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+            --accent-gold: #d4af37;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Modern Glass Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;            
+            padding: 20px 5%;            
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--text-muted); 
+            transition: all 0.3s ease;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Gold Gradient Utility */
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero { 
+            position: relative;
+            text-align: center; 
+            padding: 100px 20px 80px; 
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(11, 15, 25, 1) 70%);
+            border-bottom: 1px solid var(--border-color); 
+        }
+
+        .hero h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem; 
+            margin-bottom: 18px; 
+            letter-spacing: 1px;
+        }
+
+        .hero p { 
+            font-size: 1.1rem; 
+            color: var(--text-muted); 
+            max-width: 720px; 
+            margin: 0 auto; 
+            font-weight: 300;
+        }
+
+        /* Main Section & Cards Grid */
+        main { 
+            max-width: 1200px; 
+            margin: 60px auto; 
+            padding: 0 20px; 
+        }
+
+        .section-title { 
+            text-align: center; 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem; 
+            margin-bottom: 50px; 
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; 
+            padding: 35px 30px; 
+            transition: all 0.4s ease; 
+            position: relative;
+            backdrop-filter: blur(8px);
+        }
+
+        .card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--border-gold); 
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.12); 
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--accent-gold);
+            margin-bottom: 22px;
+        }
+
+        .card h3 { 
+            font-size: 1.25rem; 
+            color: #fff; 
+            margin-bottom: 12px; 
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card p { 
+            font-size: 0.95rem; 
+            color: var(--text-muted); 
+            line-height: 1.6;
+        }
+
+        /* Specification Table Section */
+        .spec-section { 
+            background: rgba(17, 24, 39, 0.4); 
+            border-top: 1px solid var(--border-color); 
+            border-bottom: 1px solid var(--border-color); 
+            padding: 80px 20px; 
+            margin-top: 80px; 
+        }
+
+        .table-container { 
+            max-width: 960px; 
+            margin: 0 auto; 
+            overflow-x: auto; 
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left; 
+            background: var(--bg-color);
+        }
+
+        th, td { 
+            padding: 18px 25px; 
+            border-bottom: 1px solid var(--border-color); 
+            font-size: 0.95rem; 
+        }
+
+        th { 
+            background: rgba(212, 175, 55, 0.08); 
+            color: var(--accent-gold); 
+            font-size: 1rem; 
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Footer */
+        footer { 
+            text-align: center; 
+            padding: 35px 20px; 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--border-color); 
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 850px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
+            main { margin: 40px auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="logo-text">ALBERTO<span>WATCH</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="tecnology.html" class="active">Technology</a>
+            <a href="support.html">Support</a>
+            <a href="storelocator.html">Store Locator</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="Product.html">Products</a>
+        </nav>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="hero">
+        <h1>Precision <span class="gold-text">Engineering</span> & Innovation</h1>
+        <p>Discover the advanced craftsmanship, Swiss-grade movements, and cutting-edge digital integration behind our timepieces.</p>
+    </section>
+
+    <!-- Core Technologies Grid -->
+    <main>
+        <h2 class="section-title">Core <span class="gold-text">Innovations</span></h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-gear"></i></div>
+                <h3>Automatic Movement</h3>
+                <p>Self-winding mechanical movements engineered with synthetic sapphire jewels for frictionless motion and lifetime accuracy.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-gem"></i></div>
+                <h3>Sapphire Crystal Glass</h3>
+                <p>Ultra-durable, scratch-resistant synthetic crystal casing treated with double anti-reflective coating for crystal readability.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+                <h3>Smart Sensor Suite</h3>
+                <p>Advanced optical bio-sensors providing real-time heart rate monitoring, SpO2 telemetry, and precise GPS tracking.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-water"></i></div>
+                <h3>50M Water Resistance</h3>
+                <p>Precision-sealed gaskets combined with screw-down crown systems engineered to withstand water pressures up to 5 ATM.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-solar-panel"></i></div>
+                <h3>Solar Dynamic Charging</h3>
+                <p>High-efficiency photovoltaics convert both natural sunlight and indoor light sources into continuous operational power.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Aerospace Titanium</h3>
+                <p>Forged with Grade 5 Titanium alloys to offer maximum strength-to-weight performance and hypoallergenic durability.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Spec Table Section -->
+    <section class="spec-section">
+        <h2 class="section-title">Technical <span class="gold-text">Specifications</span></h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Watch Series</th>
+                        <th>Movement Type</th>
+                        <th>Glass Material</th>
+                        <th>Water Resistance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Luxury Series</strong></td>
+                        <td>Automatic Tourbillon</td>
+                        <td>Sapphire Crystal</td>
+                        <td>50 Meters (5 ATM)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vintage Collection</strong></td>
+                        <td>Mechanical Hand-Wind</td>
+                        <td>Mineral Glass</td>
+                        <td>30 Meters (3 ATM)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Smart Pro Series</strong></td>
+                        <td>Digital / Optical Sensors</td>
+                        <td>Gorilla Glass 3D</td>
+                        <td>50 Meters (5 ATM)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mens Classic</strong></td>
+                        <td>Precision Quartz</td>
+                        <td>Hardlex Crystal</td>
+                        <td>30 Meters (3 ATM)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Alberto Watch Brand. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

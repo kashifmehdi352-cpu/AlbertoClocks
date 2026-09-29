@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alberto Watches | Luxury Timepieces</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#080808;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:rgba(5,5,5,.97);
+    border-bottom:1px solid rgba(212,175,55,.35);
+    backdrop-filter:blur(15px);
+}
+
+.navbar{
+    min-height:82px;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    text-decoration:none;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    border:2px solid #d4af37;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#d4af37;
+    font-size:20px;
+}
+
+.logo-text{
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo-text span{
+    display:block;
+    color:#d4af37;
+    font-family:'Montserrat',sans-serif;
+    font-size:7px;
+    letter-spacing:4px;
+    text-align:center;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    list-style:none;
+    margin:0;
+}
+
+.nav-links a{
+    color:#eee;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    position:relative;
+    padding:12px 0;
+    transition:.3s;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:2px;
+    width:0;
+    height:2px;
+    background:#d4af37;
+    transform:translateX(-50%);
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#d4af37;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.cart-btn{
+    border:1px solid #d4af37;
+    background:transparent;
+    color:#d4af37;
+    padding:8px 12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.cart-btn:hover{
+    background:#d4af37;
+    color:#111;
+}
+
+.visitor-counter{
+    background:#d4af37;
+    color:#111;
+    padding:9px 12px;
+    font-size:9px;
+    font-weight:800;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:680px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.58;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        90deg,
+        #050505 0%,
+        rgba(5,5,5,.9) 35%,
+        rgba(5,5,5,.35) 75%,
+        rgba(5,5,5,.7) 100%
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:55%;
+    margin-left:8%;
+}
+
+.hero-small{
+    color:#d4af37;
+    letter-spacing:6px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(55px,7vw,95px);
+    line-height:.95;
+    font-weight:500;
+}
+
+.hero h1 span{
+    display:block;
+    color:#d4af37;
+}
+
+.hero p{
+    color:#ccc;
+    max-width:550px;
+    line-height:1.8;
+    margin:30px 0;
+}
+
+.gold-btn{
+    display:inline-block;
+    padding:13px 27px;
+    background:#d4af37;
+    color:#111;
+    border:1px solid #d4af37;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.gold-btn:hover{
+    background:transparent;
+    color:#d4af37;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section{
+    padding:90px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title small{
+    color:#d4af37;
+    letter-spacing:4px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.section-title h2{
+    font-family:'Playfair Display',serif;
+    font-size:46px;
+    margin:10px 0;
+}
+
+.section-title h2 span{
+    color:#d4af37;
+}
+
+.section-title p{
+    color:#888;
+    max-width:650px;
+    margin:auto;
+    line-height:1.8;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+    background:#f4f4f4;
+    color:#111;
+}
+
+.categories .section-title p{
+    color:#777;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.category-card{
+    height:430px;
+    position:relative;
+    overflow:hidden;
+    background:#111;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+.category-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.7s;
+}
+
+.category-card:hover img{
+    transform:scale(1.09);
+}
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:27px;
+    background:linear-gradient(
+        transparent 20%,
+        rgba(0,0,0,.95)
+    );
+}
+
+.category-number{
+    color:#d4af37;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.category-overlay h3{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    margin:6px 0;
+}
+
+.category-overlay p{
+    color:#ddd;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.category-btn{
+    width:max-content;
+    padding:9px 15px;
+    margin-top:10px;
+    border:1px solid #d4af37;
+    background:transparent;
+    color:white;
+    font-size:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.category-btn:hover{
+    background:#d4af37;
+    color:#111;
+}
+
+
+/* ================= FEATURED PRODUCTS ================= */
+
+.featured{
+    background:#0d0d0d;
+}
+
+.product-card{
+    background:#151515;
+    border:1px solid #282828;
+    height:100%;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    border-color:#d4af37;
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+.product-img{
+    height:270px;
+    overflow:hidden;
+    position:relative;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.product-card:hover .product-img img{
+    transform:scale(1.08);
+}
+
+.sale-badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#d4af37;
+    color:#111;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    font-family:'Playfair Display',serif;
+    font-size:23px;
+}
+
+.stars{
+    color:#d4af37;
+    font-size:12px;
+    margin:8px 0;
+}
+
+.product-info p{
+    color:#888;
+    font-size:12px;
+}
+
+.price{
+    color:#d4af37;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.product-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+}
+
+.add-cart{
+    border:1px solid #d4af37;
+    background:#d4af37;
+    color:#111;
+    padding:9px 14px;
+    font-size:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.add-cart:hover{
+    background:transparent;
+    color:#d4af37;
+}
+
+.heart{
+    background:none;
+    border:none;
+    color:#888;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.heart:hover{
+    color:#d4af37;
+}
+
+
+/* ================= WHY CHOOSE ================= */
+
+.why{
+    background:#f5f5f5;
+    color:#111;
+}
+
+.why .section-title p{
+    color:#777;
+}
+
+.why-box{
+    background:white;
+    border:1px solid #ddd;
+    padding:35px 25px;
+    text-align:center;
+    height:100%;
+    transition:.3s;
+}
+
+.why-box:hover{
+    transform:translateY(-7px);
+    border-color:#d4af37;
+}
+
+.why-icon{
+    font-size:35px;
+    color:#c9a227;
+    margin-bottom:15px;
+}
+
+.why-box h3{
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+}
+
+.why-box p{
+    color:#777;
+    font-size:12px;
+    line-height:1.7;
+}
+
+
+/* ================= STORE ================= */
+
+.store{
+    background:#101010;
+}
+
+.store-box{
+    text-align:center;
+    border:1px solid #292929;
+    padding:60px 25px;
+}
+
+.store-box h2{
+    font-family:'Playfair Display',serif;
+    font-size:43px;
+}
+
+.store-box p{
+    max-width:650px;
+    color:#888;
+    line-height:1.8;
+    margin:15px auto 25px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#030303;
+    border-top:1px solid #222;
+    padding:60px 7% 75px;
+}
+
+.footer-logo{
+    font-family:'Playfair Display',serif;
+    font-size:27px;
+    color:white;
+}
+
+.footer-logo span{
+    color:#d4af37;
+}
+
+.footer-about{
+    color:#666;
+    max-width:320px;
+    font-size:12px;
+    line-height:1.8;
+    margin-top:15px;
+}
+
+.footer-title{
+    color:#d4af37;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:20px;
+}
+
+.footer-links{
+    list-style:none;
+    padding:0;
+}
+
+.footer-links li{
+    margin-bottom:11px;
+}
+
+.footer-links a{
+    color:#666;
+    text-decoration:none;
+    font-size:12px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#d4af37;
+    padding-left:4px;
+}
+
+.social{
+    display:flex;
+    gap:8px;
+    margin-top:20px;
+}
+
+.social a{
+    width:36px;
+    height:36px;
+    border:1px solid #444;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.social a:hover{
+    background:#d4af37;
+    color:#111;
+    border-color:#d4af37;
+}
+
+.copyright{
+    border-top:1px solid #222;
+    margin-top:40px;
+    padding-top:20px;
+    text-align:center;
+    color:#555;
+    font-size:10px;
+}
+
+
+/* ================= TICKER ================= */
+
+.ticker{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:32px;
+    background:#d4af37;
+    color:#111;
+    z-index:10000;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+
+.ticker-text{
+    white-space:nowrap;
+    font-size:10px;
+    font-weight:bold;
+    animation:ticker 25s linear infinite;
+}
+
+@keyframes ticker{
+    from{
+        transform:translateX(100%);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+
+/* ================= MODAL ================= */
+
+.modal-content{
+    background:#111;
+    color:white;
+    border:1px solid #d4af37;
+}
+
+.modal-header{
+    border-bottom:1px solid #333;
+}
+
+.modal-title{
+    font-family:'Playfair Display',serif;
+}
+
+.btn-close{
+    filter:invert(1);
+}
+
+.cart-list{
+    color:#aaa;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .nav-links{
+        gap:13px;
+    }
+
+    .nav-links a{
+        font-size:8px;
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:800px){
+
+    .navbar{
+        flex-direction:column;
+        padding:15px 0;
+        gap:12px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .visitor-counter{
+        display:none;
+    }
+
+    .hero-content{
+        width:88%;
+        margin:auto;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .category-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .section-title h2{
+        font-size:36px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="header">
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+
+<div class="logo-box">
+
+<div class="logo-icon">
+⌚
+</div>
+
+<div class="logo-text">
+ALBERTO
+<span>WATCHES</span>
+</div>
+
+</div>
+
+</a>
+
+
+<ul class="nav-links">
+
+<li>
+<a href="/eprojetc/index.html" class="active">
+Home
+</a>
+</li>
+
+<li>
+<a href="/abd 3.html">
+Products
+</a>
+</li>
+
+<li>
+<a href="/storelocator.html">
+Store
+</a>
+</li>
+
+<li>
+<a href="support.html">
+Support
+</a>
+</li>
+
+<li>
+<a href="about.html">
+About
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
+
+</ul>
+
+
+<div class="nav-right">
+
+<button class="cart-btn" onclick="openCart()">
+🛒 <span id="cartCount">0</span>
+</button>
+
+<div class="visitor-counter">
+VISITS: <span id="visitorCount">0</span>
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<img
+class="hero-image"
+src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1800&q=90"
+alt="Luxury Alberto Watch"
+>
+
+<div class="hero-content">
+
+<div class="hero-small">
+ALBERTO WATCHES
+</div>
+
+<h1>
+TIMELESS
+<span>PRECISION</span>
+</h1>
+
+<p>
+Discover exceptional watches crafted for every moment.
+Designed with elegance, precision and timeless
+craftsmanship.
+</p>
+
+<a href="#collections" class="gold-btn">
+Explore Collection
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section categories" id="collections">
+
+<div class="section-title">
+
+<small>EXPLORE OUR COLLECTION</small>
+
+<h2>
+Watch <span>Categories</span>
+</h2>
+
+<p>
+Choose your perfect Alberto timepiece from our
+four signature collections.
+</p>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=90"
+alt="Men Watch"
+>
+
+<div class="category-overlay">
+
+<div class="category-number">
+01 — COLLECTION
+</div>
+
+<h3>
+Men Watches
+</h3>
+
+<p>
+Bold, sophisticated watches designed
+for a confident modern style.
+</p>
+
+<button
+class="category-btn"
+onclick="filterCategory('Men Watches')"
+>
+VIEW COLLECTION
+</button>
+
+</div>
+
+</div>
+
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=90"
+alt="Women Watch"
+>
+
+<div class="category-overlay">
+
+<div class="category-number">
+02 — COLLECTION
+</div>
+
+<h3>
+Women Watches
+</h3>
+
+<p>
+Elegant designs made for special
+moments and everyday luxury.
+</p>
+
+<button
+class="category-btn"
+onclick="filterCategory('Women Watches')"
+>
+VIEW COLLECTION
+</button>
+
+</div>
+
+</div>
+
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=90"
+alt="Smart Watch"
+>
+
+<div class="category-overlay">
+
+<div class="category-number">
+03 — COLLECTION
+</div>
+
+<h3>
+Smart Watches
+</h3>
+
+<p>
+Modern technology combined with
+everyday performance.
+</p>
+
+<button
+class="category-btn"
+onclick="filterCategory('Smart Watches')"
+>
+VIEW COLLECTION
+</button>
+
+</div>
+
+</div>
+
+
+<div class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=90"
+alt="Luxury Watch"
+>
+
+<div class="category-overlay">
+
+<div class="category-number">
+04 — COLLECTION
+</div>
+
+<h3>
+Luxury Watches
+</h3>
+
+<p>
+Exclusive timepieces for those who
+appreciate premium craftsmanship.
+</p>
+
+<button
+class="category-btn"
+onclick="filterCategory('Luxury Watches')"
+>
+VIEW COLLECTION
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+
+<section class="section featured" id="products">
+
+<div class="section-title">
+
+<small>OUR BESTSELLERS</small>
+
+<h2>
+Featured <span>Watches</span>
+</h2>
+
+<p>
+Discover some of our most popular Alberto
+timepieces.
+</p>
+
+</div>
+
+
+<div class="row g-4">
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<span class="sale-badge">
+BESTSELLER
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=90"
+alt="Alberto London"
+>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+London
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Men's Stainless Steel Watch
+</p>
+
+<span class="price">
+$120
+</span>
+
+<div class="product-actions">
+
+<button
+class="add-cart"
+onclick="addToCart('London Watch',120)"
+>
+ADD TO CART
+</button>
+
+<button class="heart">
+♡
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<span class="sale-badge">
+NEW
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=90"
+alt="Alberto Pearl"
+>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Pearl
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Women's Elegant Collection
+</p>
+
+<span class="price">
+$195
+</span>
+
+<div class="product-actions">
+
+<button
+class="add-cart"
+onclick="addToCart('Pearl Watch',195)"
+>
+ADD TO CART
+</button>
+
+<button class="heart">
+♡
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<span class="sale-badge">
+SMART
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=90"
+alt="Active Smart Watch"
+>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Active Ultra
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Advanced Smart Watch
+</p>
+
+<span class="price">
+$180
+</span>
+
+<div class="product-actions">
+
+<button
+class="add-cart"
+onclick="addToCart('Active Ultra',180)"
+>
+ADD TO CART
+</button>
+
+<button class="heart">
+♡
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="product-card">
+
+<div class="product-img">
+
+<span class="sale-badge">
+LUXURY
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=90"
+alt="Geneva Luxury Watch"
+>
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Geneva
+</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Luxury Gold Collection
+</p>
+
+<span class="price">
+$890
+</span>
+
+<div class="product-actions">
+
+<button
+class="add-cart"
+onclick="addToCart('Geneva Luxury',890)"
+>
+ADD TO CART
+</button>
+
+<button class="heart">
+♡
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE ================= -->
+
+<section class="section why">
+
+<div class="section-title">
+
+<small>THE ALBERTO PROMISE</small>
+
+<h2>
+Why Choose <span>Alberto?</span>
+</h2>
+
+</div>
+
+
+<div class="row g-4">
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="why-box">
+
+<div class="why-icon">
+✓
+</div>
+
+<h3>
+Premium Quality
+</h3>
+
+<p>
+Carefully selected materials and
+excellent craftsmanship.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="why-box">
+
+<div class="why-icon">
+⌚
+</div>
+
+<h3>
+Precision
+</h3>
+
+<p>
+Reliable movements designed for
+accurate timekeeping.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="why-box">
+
+<div class="why-icon">
+♢
+</div>
+
+<h3>
+2 Year Warranty
+</h3>
+
+<p>
+Extra confidence with warranty
+and customer care.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="why-box">
+
+<div class="why-icon">
+✦
+</div>
+
+<h3>
+Secure Delivery
+</h3>
+
+<p>
+Safe and reliable delivery for
+your precious timepiece.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= STORE ================= -->
+
+<section class="section store" id="store">
+
+<div class="store-box">
+
+<h2>
+Find Your Nearest Store
+</h2>
+
+<p>
+Visit an Alberto Watches store and experience our
+collection personally. Our team will help you find
+the perfect timepiece.
+</p>
+
+<a href="store-locator.html" class="gold-btn">
+Store Locator
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="row g-5">
+
+
+<div class="col-lg-5">
+
+<div class="footer-logo">
+ALBERTO <span>WATCHES</span>
+</div>
+
+<p class="footer-about">
+
+Timeless watches designed with precision,
+elegance and passion. Discover a collection
+created for every moment.
+
+</p>
+
+<div class="social">
+
+<a href="#">f</a>
+<a href="#">𝕏</a>
+<a href="#">in</a>
+<a href="#">◎</a>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-3">
+
+<div class="footer-title">
+Collections
+</div>
+
+<ul class="footer-links">
+
+<li>
+<a href="products.html">
+Men Watches
+</a>
+</li>
+
+<li>
+<a href="products.html">
+Women Watches
+</a>
+</li>
+
+<li>
+<a href="products.html">
+Smart Watches
+</a>
+</li>
+
+<li>
+<a href="products.html">
+Luxury Watches
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="col-lg-4">
+
+<div class="footer-title">
+Quick Links
+</div>
+
+<ul class="footer-links">
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="products.html">
+Products
+</a>
+</li>
+
+<li>
+<a href="store-locator.html">
+Store
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Alberto Watches.
+All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- ================= TICKER ================= -->
+
+<div class="ticker">
+
+<div class="ticker-text" id="tickerText">
+
+ALBERTO WATCHES • TIMELESS PRECISION •
+LOADING DATE & TIME...
+
+</div>
+
+</div>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div
+class="modal fade"
+id="cartModal"
+tabindex="-1"
+>
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h5 class="modal-title">
+Your Shopping Cart
+</h5>
+
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="modal"
+></button>
+
+</div>
+
+<div class="modal-body">
+
+<div id="cartItems" class="cart-list">
+Your cart is empty.
+</div>
+
+</div>
+
+<div class="modal-footer">
+
+<strong>
+Total: $<span id="cartTotal">0</span>
+</strong>
+
+<button
+class="gold-btn"
+onclick="checkout()"
+>
+CHECKOUT
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+/* ================= VISITOR COUNTER ================= */
+
+let visitors =
+localStorage.getItem("albertoVisitors");
+
+if(!visitors){
+
+    visitors = 1;
+
+}else{
+
+    visitors = Number(visitors) + 1;
+
+}
+
+localStorage.setItem(
+    "albertoVisitors",
+    visitors
+);
+
+document.getElementById(
+    "visitorCount"
+).textContent = visitors;
+
+
+/* ================= CART ================= */
+
+let cart =
+JSON.parse(
+    localStorage.getItem("albertoCart")
+) || [];
+
+
+function updateCart(){
+
+    document.getElementById(
+        "cartCount"
+    ).textContent = cart.length;
+
+    let html = "";
+    let total = 0;
+
+    if(cart.length === 0){
+
+        html = "Your cart is empty.";
+
+    }else{
+
+        cart.forEach(function(item,index){
+
+            total += item.price;
+
+            html += `
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    border-bottom:1px solid #333;
+                    padding:12px 0;
+                ">
+
+                    <span>
+                        ${item.name}
+                    </span>
+
+                    <strong>
+                        $${item.price}
+                    </strong>
+
+                    <button
+                        onclick="removeCart(${index})"
+                        style="
+                            background:none;
+                            border:1px solid #d4af37;
+                            color:#d4af37;
+                            padding:4px 8px;
+                        "
+                    >
+                        ×
+                    </button>
+
+                </div>
+            `;
+
+        });
+
+    }
+
+    document.getElementById(
+        "cartItems"
+    ).innerHTML = html;
+
+    document.getElementById(
+        "cartTotal"
+    ).textContent = total;
+
+    localStorage.setItem(
+        "albertoCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function addToCart(name,price){
+
+    cart.push({
+        name:name,
+        price:price
+    });
+
+    updateCart();
+
+    alert(
+        name +
+        " has been added to your cart."
+    );
+
+}
+
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+}
+
+
+function openCart(){
+
+    updateCart();
+
+    const modal =
+    new bootstrap.Modal(
+        document.getElementById("cartModal")
+    );
+
+    modal.show();
+
+}
+
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert("Your cart is empty.");
+
+        return;
+
+    }
+
+    alert(
+        "Thank you for shopping with Alberto Watches!"
+    );
+
+}
+
+
+/* ================= CATEGORY ================= */
+
+function filterCategory(category){
+
+    alert(
+        "Opening " +
+        category +
+        " collection..."
+    );
+
+    window.location.href =
+    "products.html?category=" +
+    encodeURIComponent(category);
+
+}
+
+
+/* ================= DATE TIME ================= */
+
+function updateTicker(){
+
+    const now = new Date();
+
+    const date =
+    now.toLocaleDateString();
+
+    const time =
+    now.toLocaleTimeString();
+
+    document.getElementById(
+        "tickerText"
+    ).textContent =
+
+    "ALBERTO WATCHES • " +
+    "TIMELESS PRECISION • " +
+    "DATE: " +
+    date +
+    " • TIME: " +
+    time +
+    " • PREMIUM WATCHES • ";
+
+}
+
+updateTicker();
+
+setInterval(
+    updateTicker,
+    1000
+);
+
+
+/* ================= INIT ================= */
+
+updateCart();
+
+</script>
+
+
+</body>
+</html>
