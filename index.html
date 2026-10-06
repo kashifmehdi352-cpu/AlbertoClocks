@@ -33,6 +33,7 @@
 
         .gold-text {
             background: var(--gold-gradient);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1339,6 +1340,7 @@
 
         #products .gold-text{
             background: var(--gold-gradient);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1827,6 +1829,7 @@
         /* Gold Gradient Text Utility */
         #about .gold-text{
             background: var(--gold-gradient);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -2152,6 +2155,7 @@
         /* Gold Gradient Utility */
         #technology .gold-text{
             background: var(--gold-gradient);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -2392,6 +2396,7 @@
 
         #support .gold-text{
             background: var(--gold-gradient);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -2721,6 +2726,7 @@
         /* Gold Gradient Utility */
         #stores .gold-text{
             background: var(--gold-gradient);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -3031,6 +3037,7 @@
             font-weight: 600;
             margin-bottom: 12px;
             background: linear-gradient(135deg, #ffffff 0%, var(--accent-gold) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -3558,6 +3565,11 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
 .add-cart i{font-size:.95rem;}
 </style>
 
+
+<style id="category-filter-link-fix">
+.filter-btn { display:inline-block; text-decoration:none; cursor:pointer; }
+.category-btn { display:inline-block; text-decoration:none; cursor:pointer; }
+</style>
 </head><body><header class="header">
 <a class="logo-text single-nav-link" href="#home">
 <i class="fa-solid fa-clock logo-icon"></i> ALBERTO<span>CLOCK</span>
@@ -3595,40 +3607,40 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
 <p>Select your ultimate Alberto timepiece from our specialized horological series.</p>
 </div>
 <div class="category-grid">
-<div class="category-card" onclick="filterCategory('Vintage Collection')">
-<img alt="Vintage Collection" src="v1.jpg">
+<div class="category-card">
+<img alt="Vintage Collection" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDtVZ8dqVxwPIZIAyWJV0si0qROwYTbXNWu9Z4c_TqNw&s=10">
 <div class="category-overlay">
 <div class="category-number">01 — COLLECTION</div>
 <h3>Vintage Collection</h3>
 <p>Classic heritage designs with timeless retro appeal and historical authenticity.</p>
-<button class="category-btn">View Series →</button>
+<a href="#products" class="category-btn" onclick="goToWatchCategory('vintage'); return false;">View Series →</a>
 </div>
 </div>
-<div class="category-card" onclick="filterCategory('Luxury Timepieces')">
+<div class="category-card">
 <img alt="Luxury Timepieces" src="l3.jpg"/>
 <div class="category-overlay">
 <div class="category-number">02 — COLLECTION</div>
 <h3>Luxury Timepieces</h3>
 <p>Exclusive gold and mechanical masterpieces crafted in limited quantities.</p>
-<button class="category-btn">View Series →</button>
+<a href="#products" class="category-btn" onclick="goToWatchCategory('luxury'); return false;">View Series →</a>
 </div>
 </div>
-<div class="category-card" onclick="filterCategory('Smart Watches')">
+<div class="category-card">
 <img alt="Smart Watches" src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&amp;fit=crop&amp;w=900&amp;q=90"/>
 <div class="category-overlay">
 <div class="category-number">03 — COLLECTION</div>
 <h3>Smart Watches</h3>
 <p>Cutting-edge digital functionality coupled with high-end craftsmanship.</p>
-<button class="category-btn">View Series →</button>
+<a href="#products" class="category-btn" onclick="goToWatchCategory('smart'); return false;">View Series →</a>
 </div>
 </div>
-<div class="category-card" onclick="filterCategory('Designer Series')">
+<div class="category-card">
 <img alt="Designer Series" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&amp;fit=crop&amp;w=900&amp;q=90"/>
 <div class="category-overlay">
 <div class="category-number">04 — COLLECTION</div>
 <h3>Designer Series</h3>
 <p>Elegant designs studded with luxury accents for everyday poise.</p>
-<button class="category-btn">View Series →</button>
+<a href="#products" class="category-btn" onclick="goToWatchCategory('designer'); return false;">View Series →</a>
 </div>
 </div>
 </div>
@@ -3644,7 +3656,7 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
 <div class="product-card">
 <div class="product-img">
 <span class="sale-badge">BESTSELLER</span>
-<a href="#products"><img alt="Alberto London" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg"/></a>
+<a href="#products"><img alt="Alberto London" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx74L4ekA3YNbdf4GapZre3xMt8ANCsQzjEr1DsInKfQ&s"/></a>
 </div>
 <div class="product-info">
 <h3><a href="#products" style="color:#fff; text-decoration:none;">London Chrono</a></h3>
@@ -3762,11 +3774,11 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
 <h1>Vintage, Luxury, Smart &amp; <span class="gold-text">Designer Collection</span></h1>
 </section><section class="filter-section">
 <div class="category-buttons">
-<button class="filter-btn active" onclick="filterProducts('all', this)">All Watches</button>
-<button class="filter-btn" onclick="filterProducts('vintage', this)">Vintage Collection</button>
-<button class="filter-btn" onclick="filterProducts('luxury', this)">Luxury Timepieces</button>
-<button class="filter-btn" onclick="filterProducts('smart', this)">Smart Watches</button>
-<button class="filter-btn" onclick="filterProducts('designer', this)">Designer Series</button>
+<a href="#products" class="filter-btn active" onclick="filterProducts('all', this); return false;">All Watches</a>
+<a href="#products" class="filter-btn" onclick="filterProducts('vintage', this); return false;">Vintage Collection</a>
+<a href="#products" class="filter-btn" onclick="filterProducts('luxury', this); return false;">Luxury Timepieces</a>
+<a href="#products" class="filter-btn" onclick="filterProducts('smart', this); return false;">Smart Watches</a>
+<a href="#products" class="filter-btn" onclick="filterProducts('designer', this); return false;">Designer Series</a>
 </div>
 <div class="search-box">
 <i class="fa-solid fa-magnifying-glass"></i>
@@ -3778,7 +3790,7 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
     <div class="product-card">
       <div class="product-img" onclick="quickView(1)">
         <span class="badge-tag">CLASSIC CHRONO</span>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd4H9aiIvXZREp4LHogKYwqfArYmycTDeinkZSrC_W0Q&s=10" alt="Alberto Chrono-Legacy 1948">
+        <img src="" alt="Alberto Chrono-Legacy 1948">
       </div>
       <div class="product-info">
         <div class="product-category">VINTAGE SERIES</div>
@@ -3854,7 +3866,7 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
     <div class="product-card">
       <div class="product-img" onclick="quickView(4)">
         <span class="badge-tag">RACEDAY EDITION</span>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEOY9vAJwrqUcy8CQchlXOnoCRJo4Ls9K7v6IXad9IsGsWp3F1tmJQ-lbV&s=10" alt="Silverstone Vintage Racer 67">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL2YRd9Kly0Et48WHmI9lkE-B7bf2pYc1evil_cxujKw&s=10" alt="Silverstone Vintage Racer 67">
       </div>
       <div class="product-info">
         <div class="product-category">VINTAGE SERIES</div>
@@ -4581,32 +4593,45 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
             document.getElementById("orderForm").reset();
         }
 
-        /* ================= CATEGORY FILTER ================= */
-        function filterCategory(category) {
-            const map = {
-                "Vintage Collection": "vintage",
-                "Luxury Timepieces": "luxury",
-                "Smart Watches": "smart",
-                "Designer Series": "designer"
-            };
-            const key = map[category] || "all";
-            const buttons = document.querySelectorAll("#products .filter-btn");
-            const buttonIndex = { all: 0, vintage: 1, luxury: 2, smart: 3, designer: 4 }[key] ?? 0;
-            const button = buttons[buttonIndex];
-            if (typeof filterProducts === "function") {
-                filterProducts(key, button);
-            }
-            document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+       function goToWatchCategory(category) {
+    currentFilter = category;
 
+    // Filter products
+    const filtered = category === 'all'
+        ? products
+        : products.filter(function(product) {
+            return product.category === category;
+        });
+
+    // Show filtered products
+    renderProducts(filtered);
+
+    // Active button change
+    document.querySelectorAll('#products .filter-btn').forEach(function(button) {
+        button.classList.remove('active');
+    });
+
+    // Scroll to products section
+    const section = document.getElementById('products');
+
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
         /* ================= LIVE TICKER ================= */
         function updateTicker() {
             const now = new Date();
             const date = now.toLocaleDateString();
             const time = now.toLocaleTimeString();
 
-            document.getElementById("tickerText").textContent =
-                "ALBERTO WATCHES • TIMELESS PRECISION • CURRENT DATE: " + date + " • CURRENT TIME: " + time + " • EXECUTIVE HOROLOGY • ";
+            const tickerEl = document.getElementById("tickerText");
+            if (tickerEl) {
+                tickerEl.textContent =
+                    "ALBERTO WATCHES • TIMELESS PRECISION • CURRENT DATE: " + date + " • CURRENT TIME: " + time + " • EXECUTIVE HOROLOGY • ";
+            }
         }
 
         updateTicker();
@@ -4625,7 +4650,7 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
                 category: "vintage", 
                 price: 340, 
                 badge: "CLASSIC CHRONO", 
-                img: "/s1.jpg", 
+                img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=90", 
                 desc: "Aged brass housing paired with a hand-stitched tan leather strap and nostalgic 1940s tachymeter dial." 
             },
             { 
@@ -4634,7 +4659,7 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
                 category: "vintage", 
                 price: 420, 
                 badge: "RARE POCKET-ADAPTED", 
-                img: "/s2.jpg", 
+                img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=90", 
                 desc: "Re-engineered vintage pocket watch movement enclosed in a modern wrist casing with classic Roman numerals." 
             },
             { 
@@ -4643,7 +4668,7 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
                 category: "vintage", 
                 price: 290, 
                 badge: "1920s BARREL SHAPE", 
-                img: "/s3.jpg", 
+                img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=90", 
                 desc: "Curved barrel-shaped antique casing featuring golden patina hands and a guilloché inner dial." 
             },
             { 
@@ -4652,34 +4677,34 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
                 category: "vintage", 
                 price: 365, 
                 badge: "RACEDAY EDITION", 
-                img: "/s4.jpg", 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvaINmBp3Mfh5K9yHsmw9yM6KDT-uzLqBX11hbUj3txA&s=10", 
                 desc: "Inspired by 1960s track racing chronographs, with a perforated rally leather strap and dual sub-dials." 
             },
             { 
                 id: 5, 
                 name: "Alberto Masterpiece Art-Deco", 
-                category: "vintage", 
+                category: "luxury", 
                 price: 510, 
                 badge: "ART-DECO PATTERN", 
-                img: "/l1.jpg", 
+                img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=90", 
                 desc: "Symmetrical geometric Art-Deco dial with gilded leaf hands and a vintage polished steel bezel." 
             },
             { 
                 id: 6, 
                 name: "Luftwaffe Pilot Legend 1941", 
-                category: "vintage", 
+                category: "luxury", 
                 price: 330, 
                 badge: "MILITARY AVIATOR", 
-                img: "/l2.jpg", 
+                img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=90", 
                 desc: "High-contrast matte black dial engineered with patinated luminescent indices for high visibility." 
             },
             { 
                 id: 7, 
                 name: "Nostalgic Aureus Mesh 1982", 
-                category: "vintage", 
+                category: "luxury", 
                 price: 275, 
                 badge: "GOLD MESH RETRO", 
-                img: "/l3.jpg", 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ6ZK11zk_w-1UsYereML-w_NtjbMQvUa_XlhQ_w9quw&s=10", 
                 desc: "Slim-profile retro gold-tone casing connected to a lightweight woven stainless steel mesh bracelet." 
             },
 
@@ -4690,158 +4715,46 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
                 category: "luxury", 
                 price: 1450, 
                 badge: "GRAND TOURBILLON", 
-                img: "/l4.jpg", 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ00bjn30_5cgZ95VMtaWgYGierANdbnZrO9TE36y7kWQ&s=10", 
                 desc: "18k gold electroplated open-heart cage displaying a rotating Swiss automatic tourbillon mechanism." 
             },
             { 
                 id: 9, 
                 name: "Grand Skeleton Majesty Gold", 
-                category: "luxury", 
+                category: "designer", 
                 price: 1100, 
                 badge: "EXPOSED SKELETON", 
-                img: "/v1.jpg", 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRifF9nUSLAn-iUiaSsVl9U1Dv2C8BVz7TShDDttL3ujQ&s=10", 
                 desc: "Fully transparent mechanical engine shielded by scratch-proof sapphire crystal on both front and back." 
             },
             { 
                 id: 10, 
                 name: "Royal Astronomical Moonphase", 
-                category: "luxury", 
+                category: "designer", 
                 price: 1580, 
                 badge: "CELESTIAL CALENDAR", 
-                img: "/v2.jpg", 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ6ZK11zk_w-1UsYereML-w_NtjbMQvUa_XlhQ_w9quw&s=10", 
                 desc: "Solid gold bezel featuring a precision astronomical moonphase window and full perpetual calendar function." 
             },
             { 
                 id: 11, 
                 name: "Black Diamond Sovereign", 
-                category: "luxury", 
+                category: "designer", 
                 price: 1950, 
                 badge: "GENUINE DIAMONDS", 
-                img: "/v3.jpg", 
+                img: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=90", 
                 desc: "Midnight black obsidian sunray dial studded with 12 ethically sourced solitaire diamonds at hour positions." 
             },
             { 
                 id: 12, 
                 name: "Opulent Skeleton II Chrono", 
-                category: "luxury", 
+                category: "designer", 
                 price: 1720, 
                 badge: "HAND-ENGRAVED GEARS", 
-                img: "/v4.jpg", 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1jA7i_sGYJItgnde9QA0y_xIO0qzN5lpHzG9vOcEkXg&s=10", 
                 desc: "Exquisite hand-engraved platinum internal bridges visible through an exhibition case-back." 
             },
-            { 
-                id: 13, 
-                name: "Rose Gold Executive Chrono", 
-                category: "luxury", 
-                price: 1280, 
-                badge: "ROSE GOLD PVD", 
-                img: "/w1.jpg", 
-                desc: "Brushed rose gold PVD case paired with a genuine brown alligator-grain leather strap and deployment clasp." 
-            },
-            { 
-                id: 14, 
-                name: "Oceanic Sapphire Chronometer", 
-                category: "luxury", 
-                price: 1390, 
-                badge: "COSC CERTIFIED", 
-                img: "/w2.jpg", 
-                desc: "Officially certified Swiss chronometer with a deep oceanic blue sunray dial and 300m water resistance." 
-            },
-
-            // SMART COLLECTION (6 items)
-            { 
-                id: 15, 
-                name: "Alberto Apex Titanium Smart X", 
-                category: "smart", 
-                price: 240, 
-                badge: "TITANIUM & ECG", 
-                img: "/w3.jpg", 
-                desc: "Grade-5 Titanium body featuring an Ultra HD AMOLED touchscreen with continuous ECG, Heart Rate & SpO2 sensors." 
-            },
-            { 
-                id: 16, 
-                name: "Alberto Hybrid Connect Pro", 
-                category: "smart", 
-                price: 310, 
-                badge: "HYBRID DUAL-DISPLAY", 
-                img: "/w4.jpg", 
-                desc: "Physical mechanical clock hands layered over a hidden OLED digital touchscreen beneath curved sapphire glass." 
-            },
-            { 
-                id: 17, 
-                name: "CyberTech Sync Series 9", 
-                category: "smart", 
-                price: 270, 
-                badge: "DUAL GPS & 14-DAY BATTERY", 
-                img: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=90", 
-                desc: "Precision dual-frequency satellite GPS, 50-meter water resistance rating, and an extended 14-day battery life." 
-            },
-            { 
-                id: 18, 
-                name: "Platinum Fit Tracker Pro", 
-                category: "smart", 
-                price: 195, 
-                badge: "HEALTH SUITE PRO", 
-                img: "https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=800&q=90", 
-                desc: "Aerospace aluminum alloy body offering advanced REM sleep tracking, stress level analysis, and workout coaching." 
-            },
-            { 
-                id: 19, 
-                name: "Alberto Matrix Cyber Watch V2", 
-                category: "smart", 
-                price: 360, 
-                badge: "CERAMIC BEZEL & NFC", 
-                img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=90", 
-                desc: "Scratch-resistant ceramic bezel with contactless NFC payment chip, built-in voice AI assistant, and wireless charging." 
-            },
-            { 
-                id: 20, 
-                name: "Horizon LTE Cellular Ultra", 
-                category: "smart", 
-                price: 325, 
-                badge: "STANDALONE eSIM", 
-                img: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=90", 
-                desc: "Embedded eSIM cellular connectivity allowing independent voice calls, messaging, and music streaming without a smartphone." 
-            },
-
-            // DESIGNER SERIES (4 items)
-            { 
-                id: 21, 
-                name: "Alberto Atelier Vanguard", 
-                category: "designer", 
-                price: 890, 
-                badge: "LIMITED DESIGNER", 
-                img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=90", 
-                desc: "Avant-garde asymmetric dial architecture housing handcrafted Swiss movement and a bespoke Italian calfskin strap." 
-            },
-            { 
-                id: 22, 
-                name: "Monochrome Haute Horlogerie", 
-                category: "designer", 
-                price: 980, 
-                badge: "EXCLUSIVE EDITION", 
-                img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=90", 
-                desc: "Minimalist matte-black ceramic construction accented by brushed gold geometric hands and a hidden crown feature." 
-            },
-            { 
-                id: 23, 
-                name: "Starlight Celestial Eclipse", 
-                category: "designer", 
-                price: 1150, 
-                badge: "AVANT-GARDE", 
-                img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=90", 
-                desc: "Aventurine glass dial depicting a starry night sky surrounded by a sculpted polished titanium case." 
-            },
-            { 
-                id: 24, 
-                name: "Alberto Prism Chroma Art", 
-                category: "designer", 
-                price: 760, 
-                badge: "CONCEPT DESIGN", 
-                img: "e-project images/final3.jpg", 
-                desc: "Iridescent sapphire crystal top coating creating dynamic spectrum reflections across a skeleton dial base." 
-            }
-        ];
+];
 
         let currentFilter = 'all';
         // Display Products
@@ -4875,23 +4788,38 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
             `).join('');
         }
 
-        // Filter Products
         function filterProducts(cat, btn) {
-            currentFilter = cat;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            currentFilter = cat || 'all';
 
-            const filtered = cat === 'all' ? products : products.filter(p => p.category === cat);
-            renderProducts(filtered);
+            document.querySelectorAll('#products .filter-btn').forEach(function (button) {
+                button.classList.remove('active');
+            });
+            if (btn) {
+                btn.classList.add('active');
+            }
+
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+            const filteredProducts = products.filter(function (product) {
+                const categoryMatch = currentFilter === 'all' || product.category === currentFilter;
+                const searchMatch = !query ||
+                    product.name.toLowerCase().includes(query) ||
+                    product.desc.toLowerCase().includes(query);
+                return categoryMatch && searchMatch;
+            });
+
+            renderProducts(filteredProducts);
         }
 
         // Search Products
         function searchProducts() {
-            const query = document.getElementById("searchInput").value.toLowerCase();
-            const filtered = products.filter(p => 
-                (currentFilter === 'all' || p.category === currentFilter) &&
-                (p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query))
-            );
+            const input = document.getElementById("searchInput");
+            const query = input ? input.value.trim().toLowerCase() : '';
+            const filtered = products.filter(function (p) {
+                return (currentFilter === 'all' || p.category === currentFilter) &&
+                    (!query || p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+            });
             renderProducts(filtered);
         }
 
@@ -4914,34 +4842,12 @@ body{background:#090909 !important;color:#f5f5f5 !important;}
             new bootstrap.Modal(document.getElementById("productModal")).show();
         }
 
-        // Cart Logic
-        function updateTicker() {
-            const now = new Date();
-            document.getElementById("tickerText").textContent =
-                "ALBERTO WATCHES • TIMELESS PRECISION • CURRENT DATE: " + now.toLocaleDateString() + " • TIME: " + now.toLocaleTimeString() + " • ";
-        }
-        setInterval(updateTicker, 1000);
-        updateTicker();
 
-        // Initial Load
-        window.onload = () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const catParam = urlParams.get('category');
-            if(catParam) {
-                const lowerCat = catParam.toLowerCase();
-                if(lowerCat.includes('vintage')) filterProducts('vintage', document.querySelectorAll('.filter-btn')[1]);
-                else if(lowerCat.includes('luxury')) filterProducts('luxury', document.querySelectorAll('.filter-btn')[2]);
-                else if(lowerCat.includes('smart')) filterProducts('smart', document.querySelectorAll('.filter-btn')[3]);
-                else if(lowerCat.includes('designer')) filterProducts('designer', document.querySelectorAll('.filter-btn')[4]);
-            } else {
-                renderProducts(products);
-            }
+        // Initialize products and cart after the page DOM is ready.
+        document.addEventListener("DOMContentLoaded", function () {
+            renderProducts(products);
             updateCart();
-        };
-    
-
-// Ensure product catalog is rendered in the single-page products section.
-if (typeof renderProducts === "function") renderProducts(products);
+        });
 </script><script>
 (function(){const links=[...document.querySelectorAll('.header nav a[href^="#"]')]; const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean); const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-30% 0px -55% 0px',threshold:0}); sections.forEach(s=>io.observe(s));})();
 </script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
